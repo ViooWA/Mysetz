@@ -70,7 +70,22 @@
         footer.mode-gelap {
             background: #333;
         }
+
+        .toggle-btn {
+            background-color: #f57f17;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-size: 16px;
+        }
         
+        .toggle-btn:hover {
+            background-color: #ffcc00;
+        }
+
         .tabs {
             display: flex;
             justify-content: center;
@@ -458,7 +473,7 @@
         <p>Website ini dibuat untuk mempromosikan produk dari Sanjaya dan bisa juga untuk menghibur kamu!</p>
     </header>
     <main>
-       <button onclick="toggleMode()">Toggle Mode</button>
+        <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
     </main>
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
@@ -550,18 +565,30 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         function toggleMode() {
-    const body = document.body;
+            const body = document.body;
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
 
-    if (body.classList.contains('mode-kuning')) {
-        body.classList.remove('mode-kuning');
-        body.classList.add('mode-gelap');
-    } else if (body.classList.contains('mode-gelap')) {
-        body.classList.remove('mode-gelap');
-        body.classList.add('mode-kuning');
-    } else {
-        body.classList.add('mode-kuning');
-    }
-}
+            if (body.classList.contains('mode-kuning')) {
+                body.classList.remove('mode-kuning');
+                body.classList.add('mode-gelap');
+                header.classList.remove('mode-kuning');
+                header.classList.add('mode-gelap');
+                footer.classList.remove('mode-kuning');
+                footer.classList.add('mode-gelap');
+            } else if (body.classList.contains('mode-gelap')) {
+                body.classList.remove('mode-gelap');
+                body.classList.add('mode-kuning');
+                header.classList.remove('mode-gelap');
+                header.classList.add('mode-kuning');
+                footer.classList.remove('mode-gelap');
+                footer.classList.add('mode-kuning');
+            } else {
+                body.classList.add('mode-kuning');
+                header.classList.add('mode-kuning');
+                footer.classList.add('mode-kuning');
+            }
+        }
 
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
@@ -697,4 +724,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-    </html>
+</html>
