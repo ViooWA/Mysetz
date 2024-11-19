@@ -9,15 +9,20 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff7d9; /* Kuning lembut */
+            background-color: #fff7d9;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
         header {
-            background: #f9a825; /* Kuning lebih gelap */
+            background: #f9a825;
             color: #fff;
             text-align: center;
             padding: 50px 0;
+            width: 100%;
         }
         header h1 {
             font-size: 3rem;
@@ -27,17 +32,16 @@
             font-size: 1.2rem;
             margin-top: 10px;
         }
-        /* Tab Navigation */
         .tabs {
             display: flex;
             justify-content: center;
-            background: #fdd835; /* Kuning terang */
+            background: #fdd835;
             padding: 10px;
-            margin-top: 20px;
+            margin-top: 0;
             border-radius: 10px 10px 0 0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: fixed;
-            top: 80px; /* Geser tab ke bawah */
+            top: 120px;
             width: 100%;
             z-index: 100;
         }
@@ -59,17 +63,20 @@
         }
         .content {
             display: none;
-            margin-top: 100px; /* Kasih space biar tab gak nutup konten */
             padding: 20px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 160px;
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
         }
         .content.active {
             display: block;
         }
         footer {
-            background: #f9a825; /* Kuning lebih gelap */
+            background: #f9a825;
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -84,6 +91,49 @@
         a:hover {
             text-decoration: underline;
         }
+        .cta-button {
+            display: block;
+            background-color: #4caf50;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            width: 300px;
+            margin: 50px auto;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+        .plan-section {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .plan {
+            background: #f9a825;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .plan h3 {
+            margin-top: 0;
+        }
+        .plan ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .plan ul li {
+            margin: 10px 0;
+        }
+        .overlay {
+            border-top: 2px solid #f57f17;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -92,22 +142,52 @@
         <p>Website ini dibuat dengan semangat tinggi dan desain yang minimalis!</p>
     </header>
 
-    <!-- Tab Navigation -->
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Home</a>
-        <a href="javascript:void(0)" class="tab-link" onclick="showTab('about')">About</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('script')">Script</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('contact')">Contact</a>
     </div>
 
-    <!-- Tab Content -->
     <div id="home" class="content active">
         <h2>Home</h2>
         <p>Selamat datang di website keren ini. Ini adalah halaman utama.</p>
+        <a href="https://wa.me/6283831409855" target="_blank" class="cta-button">Hubungi via WhatsApp</a>
     </div>
 
-    <div id="about" class="content">
-        <h2>About</h2>
-        <p>Website ini dibuat dengan tujuan belajar dan berbagi pengetahuan. Kamu bisa cari tahu lebih banyak tentang Vioo disini.</p>
+    <div id="script" class="content">
+        <h2>Script</h2>
+        <p>Di sini kami menawarkan berbagai pilihan plan untuk menggunakan script bot WhatsApp kami. Pilih plan yang sesuai dengan kebutuhanmu!</p>
+
+        <div class="plan-section">
+            <div class="plan">
+                <h3>Plan Rendah</h3>
+                <ul>
+                    <li>Fitur dasar bot WhatsApp</li>
+                    <li>Otomatis balas pesan</li>
+                    <li>Support chat grup</li>
+                </ul>
+            </div>
+
+            <div class="plan">
+                <h3>Plan Normal</h3>
+                <ul>
+                    <li>Semua fitur Plan Rendah</li>
+                    <li>Fitur custom message</li>
+                    <li>Otomatis kirim media</li>
+                </ul>
+            </div>
+
+            <div class="plan">
+                <h3>Plan VIP</h3>
+                <ul>
+                    <li>Semua fitur Plan Normal</li>
+                    <li>Fitur premium tambahan</li>
+                    <li>Prioritas support dan customisasi penuh</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
     </div>
 
     <div id="contact" class="content">
@@ -121,18 +201,14 @@
 
     <script>
         function showTab(tabName) {
-            // Hide all content
             const contents = document.querySelectorAll('.content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // Remove active class from all tab links
             const links = document.querySelectorAll('.tab-link');
             links.forEach(link => link.classList.remove('active'));
 
-            // Show selected content
             document.getElementById(tabName).classList.add('active');
 
-            // Add active class to the clicked tab
             const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`);
             activeLink.classList.add('active');
         }
