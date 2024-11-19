@@ -311,7 +311,7 @@
             color: white;
             cursor: pointer;
             z-index: 1000;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
         }
 
         .bell-icon i {
@@ -409,9 +409,24 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.getElementById('bell-icon').addEventListener('click', function() {
-        alert('Kamu telah klik lonceng!');
+        let lastScrollTop = 0
+        const bellIcon = document.getElementById('bell-icon')
+
+        if (bellIcon) {
+            window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+
+        if (scrollTop > lastScrollTop) {
+            bellIcon.style.transform = 'translateY(-100px)'
+            bellIcon.style.opacity = '0'
+        } else {
+            bellIcon.style.transform = 'translateY(0)'
+            bellIcon.style.opacity = '1'
+        }
+
+           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
         })
+        }
         
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
