@@ -370,6 +370,24 @@
              color: #333;
              text-decoration: none;
         }
+        
+        .carousel {
+             text-align: center;
+             margin-top: 20px;
+        }
+
+        .carousel-image {
+             width: 150px;
+             height: 150px;
+             border-radius: 50%;
+             border: 5px solid #FFD700;
+             object-fit: cover;
+             transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-image:hover {
+             transform: scale(1.1);
+        }
 
         .social-links a:hover {
              color: #007bff;
@@ -405,6 +423,10 @@
         <h3>Bagaimana cara membeli skrip?</h3>
         <p>Kamu bisa menghubungi kami melalui WhatsApp atau menggunakan fitur di website untuk membeli skrip.</p>
     </div>
+</div>
+
+    <div class="carousel">
+    <img src="https://pomf2.lain.la/f/7udnlgb.jpg" alt="Gambar 1" class="carousel-image">
 </div>
 
     <div class="social-links">
@@ -602,4 +624,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-    </html>
+            </html>
