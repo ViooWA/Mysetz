@@ -342,6 +342,23 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
+    function showTab(tabName) {
+           const contents = document.querySelectorAll('.content')
+           contents.forEach(content => content.classList.remove('active'))
+
+           const links = document.querySelectorAll('.tab-link')
+           links.forEach(link => link.classList.remove('active'))
+
+           document.getElementById(tabName).classList.add('active')
+
+           const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
+           activeLink.classList.add('active')
+
+           if (tabName !== 'ai') {
+               document.getElementById('chatboxMessages').innerHTML = ''
+           }
+    }
+
     let loadingInterval;
 
     async function sendMessage() {
