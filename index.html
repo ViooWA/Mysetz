@@ -40,10 +40,8 @@
             padding: 10px;
             border-radius: 10px 10px 0 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
             width: 100%;
+            position: relative; /* Non-sticky */
         }
         .tabs a {
             color: #fff;
@@ -87,10 +85,9 @@
             background: #f9a825;
             color: #fff;
             text-align: center;
-            padding: 20px;
-            position: fixed;
+            padding: 10px; /* Kurangi ukuran padding */
+            position: relative; /* Non-fixed */
             width: 100%;
-            bottom: 0;
         }
         .cta-button {
             display: block;
@@ -123,6 +120,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; /* Indikasi bisa diklik */
         }
         .plan:hover {
             transform: scale(1.05);
@@ -178,30 +176,30 @@
         <p>Di sini kami menawarkan berbagai pilihan plan untuk menggunakan script bot WhatsApp kami. Pilih plan yang sesuai dengan kebutuhanmu!</p>
 
         <div class="plan-section">
-            <div class="plan">
+            <a href="https://wa.me/6289654057716" class="plan">
                 <h3>Plan Rendah</h3>
                 <ul>
                     <li>Fitur dasar bot WhatsApp</li>
                     <li>Otomatis balas pesan</li>
                     <li>Support chat grup</li>
                 </ul>
-            </div>
-            <div class="plan">
+            </a>
+            <a href="https://wa.me/6289654057716" class="plan">
                 <h3>Plan Normal</h3>
                 <ul>
                     <li>Semua fitur Plan Rendah</li>
                     <li>Fitur custom message</li>
                     <li>Otomatis kirim media</li>
                 </ul>
-            </div>
-            <div class="plan">
+            </a>
+            <a href="https://wa.me/6289654057716" class="plan">
                 <h3>Plan VIP</h3>
                 <ul>
                     <li>Semua fitur Plan Normal</li>
                     <li>Fitur premium tambahan</li>
                     <li>Prioritas support dan customisasi penuh</li>
                 </ul>
-            </div>
+            </a>
         </div>
     </div>
 
@@ -229,4 +227,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
