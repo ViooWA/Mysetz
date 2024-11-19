@@ -617,8 +617,14 @@
     let selectedModel = 'model1'
 
     function changeAIModel() {
-        selectedModel = document.getElementById('aiModel').value
-    }
+       const selectedModel = document.getElementById('aiModel').value
+       const chatboxMessages = document.querySelector('.chatbox-messages')
+
+       chatboxMessages.innerHTML = ""
+       const notification = document.createElement('div')
+       notification.classList.add('ai-message')
+       chatboxMessages.appendChild(notification)
+        }
 
     async function AI1(content) {
         try {
