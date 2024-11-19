@@ -36,26 +36,37 @@
             margin: 0 auto;
         }
         header h1 {
-            font-size: 4rem;
-            margin: 0;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(135deg, #ffcc00, #f57f17);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-            animation: fadeInScale 0.8s ease-out;
+              font-size: 4.1rem;
+              margin: 0;
+              font-weight: bold;
+              color: white;
+              background: linear-gradient(135deg, #ffcc00, #f57f17);
+              -webkit-background-clip: text;
+              color: transparent;
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+              animation: fadeInScale 0.7s ease-out;
         }
-
+        @media (prefers-color-scheme: dark) {
+           header h1 {
+              background: linear-gradient(135deg, #ffcc00, #f57f17);
+              text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
+           }
+        }
+        @media (prefers-color-scheme: light) {
+           header h1 {
+              background: linear-gradient(135deg, #ffcc00, #f57f17);
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+           }
+        }
         @keyframes fadeInScale {
-            0% {
-               opacity: 0;
-               transform: scale(0.8);
-            }
-            100% {
-               opacity: 1;
-               transform: scale(1);
-            }
+           0% {
+              opacity: 0;
+              transform: scale(0.8);
+           }
+           100% {
+              opacity: 1;
+              transform: scale(1);
+           }
         }
         header p {
             font-size: 1.3rem;
@@ -722,4 +733,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-    </html>
+            </html>
