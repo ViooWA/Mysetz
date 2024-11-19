@@ -429,72 +429,85 @@
             }
         }
 
-    async function sendMessage() {
-        const input = document.getElementById('userInput').value
-        if (input.trim() === '') return
-
-        const messagesContainer = document.getElementById('chatboxMessages')
-
-        // Tampilkan pesan user
-        const userMessage = document.createElement('div')
-        userMessage.classList.add('message', 'user-message')
-        userMessage.textContent = input
-        messagesContainer.appendChild(userMessage)
-
-        document.getElementById('userInput').value = ''
-        messagesContainer.scrollTop = messagesContainer.scrollHeight
-
-        // Tambahkan animasi loading (bulat kuning kelap-kelip)
-        const typingIndicator = document.createElement('div')
-        typingIndicator.classList.add('message', 'ai-message')
-        typingIndicator.innerHTML = `
-            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
-                <span class="loading-dot" style="background-color: #f57f17;"></span>
-                <span class="loading-dot" style="background-color: #f57f17;"></span>
-                <span class="loading-dot" style="background-color: #f57f17;"></span>
-            </div>
-        `
-        messagesContainer.appendChild(typingIndicator)
-        messagesContainer.scrollTop = messagesContainer.scrollHeight
-
-        try {
-            const response = await axios.post('https://luminai.my.id/', {
-                content: input,
-                cName: "ViooV2",
-                cID: "ViooV2xs12xtv"
-            })
-
-            // Hapus animasi loading
-            typingIndicator.remove()
-
-            // Animasi mengetik hasil AI per huruf
-            const aiMessage = document.createElement('div')
-            aiMessage.classList.add('message', 'ai-message')
-            messagesContainer.appendChild(aiMessage)
-
-            const result = response.data.result
-            let i = 0
-            const typingInterval = setInterval(() => {
-                if (i < result.length) {
-                    aiMessage.textContent += result[i]
-                    i++
-                } else {
-                    clearInterval(typingInterval)
-                }
-                messagesContainer.scrollTop = messagesContainer.scrollHeight
-            }, 50) // Waktu delay per huruf
-        } catch (error) {
-            console.error(error)
-            typingIndicator.remove()
-
-            const errorMessage = document.createElement('div')
-            errorMessage.classList.add('message', 'error-message')
-            errorMessage.textContent = 'Terjadi kesalahan.'
-            messagesContainer.appendChild(errorMessage)
-
-            messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }
+async function sendMessage() {
+    const input = document.getElementById('userInput').value
+    if (input.trim() === '') {
+        showWarningMessage('Pesan tidak boleh kosong!')
+        return
     }
+
+    const messagesContainer = document.getElementById('chatboxMessages')
+
+    const userMessage = document.createElement('div')
+    userMessage.classList.add('message', 'user-message')
+    userMessage.textContent = input
+    messagesContainer.appendChild(userMessage)
+
+    document.getElementById('userInput').value = ''
+    messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+    const typingIndicator = document.createElement('div')
+    typingIndicator.classList.add('message', 'ai-message')
+    typingIndicator.innerHTML = `
+        <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+            <span class="loading-dot" style="background-color: #f57f17;"></span>
+            <span class="loading-dot" style="background-color: #f57f17;"></span>
+            <span class="loading-dot" style="background-color: #f57f17;"></span>
+        </div>
+    `
+    messagesContainer.appendChild(typingIndicator)
+    messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+    try {
+        const response = await axios.post('https://luminai.my.id/', {
+            content: input,
+            cName: "ViooV2",
+            cID: "ViooV2xs12xtv"
+        })
+
+        typingIndicator.remove()
+        const aiMessage = document.createElement('div')
+        aiMessage.classList.add('message', 'ai-message')
+        messagesContainer.appendChild(aiMessage)
+
+        const result = response.data.result
+        let i = 0
+        const typingInterval = setInterval(() => {
+            if (i < result.length) {
+                aiMessage.textContent += result[i]
+                i++
+            } else {
+                clearInterval(typingInterval)
+            }
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+        }, 45)
+    } catch (error) {
+        console.error(error)
+        typingIndicator.remove()
+
+        const errorMessage = document.createElement('div')
+        errorMessage.classList.add('message', 'error-message')
+        errorMessage.textContent = 'Terjadi kesalahan.'
+        messagesContainer.appendChild(errorMessage)
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight
+    }
+}
+
+function showWarningMessage(message) {
+    const warningMessage = document.createElement('div')
+    warningMessage.classList.add('message', 'warning-message')
+    warningMessage.textContent = message
+
+    const messagesContainer = document.getElementById('chatboxMessages')
+    messagesContainer.appendChild(warningMessage)
+
+    messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+    setTimeout(() => {
+        warningMessage.remove()
+    }, 3000)
+}
     </script>
   <style>
     .loading-dot {
@@ -526,4 +539,4 @@
     }
   </style>
 </body>
-    </html>
+</html>
