@@ -15,6 +15,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Menempatkan konten di tengah layar */
         }
         header {
             background: linear-gradient(135deg, #ffcc00, #f57f17);
@@ -110,7 +112,9 @@
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
+            justify-content: center;
         }
+
         .plan {
             background: linear-gradient(135deg, #f9e6a4, #f5d244);
             padding: 20px;
@@ -119,32 +123,113 @@
             max-width: 300px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            text-align: center;
         }
+        
         .plan:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
+        
         .plan h3 {
             margin-top: 0;
             font-size: 1.5rem;
             color: #f57f17;
         }
+
         .plan ul {
             padding-left: 20px;
             text-align: left;
         }
+
         .plan ul li {
             margin: 10px 0;
         }
+
+        .chatbox-container {
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .chatbox-header {
+            font-size: 1.5rem;
+            background-color: #f57f17;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .chatbox-messages {
+            height: 300px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbox-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbox-input input {
+            width: 85%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .chatbox-input button {
+            background: #f57f17;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .chatbox-input button:hover {
+            background: #ffcc00;
+        }
+
+        /* Responsif untuk perangkat mobile */
         @media (max-width: 768px) {
             .tabs {
                 flex-direction: column;
+                align-items: center;
             }
+
             .tabs a {
                 padding: 10px;
+                width: 100%;
+                text-align: center;
             }
-            .content {
-                width: calc(100% - 20px);
+
+            .plan-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .chatbox-container {
+                width: 95%;
+                margin: 20px auto;
             }
         }
     </style>
@@ -283,4 +368,4 @@
         }
     </script>
 </body>
-</html>
+            </html>
