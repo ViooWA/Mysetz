@@ -330,6 +330,15 @@
             transform: translateX(5px);
         }
     }
+    
+        @keyframes fadeOut {
+             0% { opacity: 1; }
+             100% { opacity: 0; }
+        }
+
+        .warning-message.fade-out {
+             animation: fadeOut 0.5s ease forwards;
+        }
         
         @keyframes bounce {
              0% { transform: translateY(0); }
@@ -466,6 +475,7 @@ async function sendMessage() {
         })
 
         typingIndicator.remove()
+
         const aiMessage = document.createElement('div')
         aiMessage.classList.add('message', 'ai-message')
         messagesContainer.appendChild(aiMessage)
@@ -480,7 +490,7 @@ async function sendMessage() {
                 clearInterval(typingInterval)
             }
             messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }, 45)
+        }, 50)
     } catch (error) {
         console.error(error)
         typingIndicator.remove()
@@ -498,6 +508,9 @@ function showWarningMessage(message) {
     const warningMessage = document.createElement('div')
     warningMessage.classList.add('message', 'warning-message')
     warningMessage.textContent = message
+    warningMessage.style.color = 'red'
+
+    warningMessage.classList.add('shake')
 
     const messagesContainer = document.getElementById('chatboxMessages')
     messagesContainer.appendChild(warningMessage)
@@ -505,7 +518,10 @@ function showWarningMessage(message) {
     messagesContainer.scrollTop = messagesContainer.scrollHeight
 
     setTimeout(() => {
-        warningMessage.remove()
+        warningMessage.classList.add('fade-out')
+        setTimeout(() => {
+            warningMessage.remove()
+        }, 500)
     }, 3000)
 }
     </script>
@@ -539,4 +555,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-</html>
+    </html>
