@@ -300,22 +300,23 @@
         }
         
         .bell-icon {
-             position: fixed;
-             top: 20px;
-             right: 20px;
-             background-color: #ffcc00;
-             padding: 15px;
-             border-radius: 50%;
-             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-             font-size: 24px;
-             color: white;
-             cursor: pointer;
-             animation: bounce 1s infinite;
-             transition: transform 0.3s ease;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ffcc00;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            animation: bounce 1s infinite;
+            transition: transform 0.3s ease;
+            z-index: 1000; /* Agar tetap di atas */
         }
 
         .bell-icon:hover {
-             transform: scale(1.1);
+            transform: scale(1.1);
         }
 
         @keyframes bounce {
@@ -404,6 +405,10 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        document.getElementById('bell-icon').addEventListener('click', function() {
+        alert('Kamu telah klik lonceng!');
+        })
+        
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
             contents.forEach(content => content.classList.remove('active'))
