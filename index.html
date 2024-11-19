@@ -299,29 +299,74 @@
             }
         }
         
-        .bell-icon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #ffcc00;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            z-index: 1000;
-            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
-        }
+   .bell-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
 
-        .bell-icon i {
-            font-size: 24px;
-        }
+    .bell-icon {
+        position: relative;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #f57f17;
+    }
 
-        .bell-icon:hover {
-            transform: scale(1.1);
-            background-color: #f57f17;
-        }
+    .notification-count {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: #ff3d00;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 50%;
+        font-size: 0.8rem;
+    }
+
+    .notification-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        width: 200px;
+        z-index: 9999;
+    }
+
+    .notification-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .notification-menu ul li {
+        padding: 8px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .notification-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #ff3d00;
+    }
 
         @keyframes bounce {
              0% { transform: translateY(0); }
@@ -333,9 +378,20 @@
     </style>
 </head>
 <body>
-    <div id="bell-icon" class="bell-icon">
-        <i class="fas fa-bell"></i>
+    div class="bell-notification">
+    <div class="bell-icon" onclick="toggleNotification()">
+        <span class="bell">&#128276;</span>
+        <span id="notification-count" class="notification-count">3</span>
     </div>
+    <div id="notification-menu" class="notification-menu">
+        <button class="close-btn" onclick="closeNotification()">X</button>
+        <ul>
+            <li>Pesan baru dari ChatAI</li>
+            <li>Update terbaru di Vioo WhatsApp</li>
+            <li>Pemberitahuan sistem</li>
+        </ul>
+    </div>
+</div>
     
     <header>
         <h1>Vioo WhatsApp</h1>
@@ -409,24 +465,23 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        let lastScrollTop = 0
-        const bellIcon = document.getElementById('bell-icon')
+    function toggleNotification() {
+        const notificationMenu = document.getElementById('notification-menu');
+        const notificationCount = document.getElementById('notification-count');
 
-        if (bellIcon) {
-            window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-
-        if (scrollTop > lastScrollTop) {
-            bellIcon.style.transform = 'translateY(-100px)'
-            bellIcon.style.opacity = '0'
+        if (notificationMenu.style.display === 'block') {
+            notificationMenu.style.display = 'none';
         } else {
-            bellIcon.style.transform = 'translateY(0)'
-            bellIcon.style.opacity = '1'
+            notificationMenu.style.display = 'block';
         }
 
-           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
-        })
-        }
+        notificationCount.textContent = '0';
+    }
+
+    function closeNotification() {
+        const notificationMenu = document.getElementById('notification-menu');
+        notificationMenu.style.display = 'none';
+    }
         
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
@@ -498,4 +553,4 @@
         }
     </script>
 </body>
-    </html>
+            </html>
