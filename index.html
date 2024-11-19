@@ -16,7 +16,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Menempatkan konten di tengah layar */
+            min-height: 100vh;
         }
         header {
             background: linear-gradient(135deg, #ffcc00, #f57f17);
@@ -125,12 +125,12 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-        
+
         .plan:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .plan h3 {
             margin-top: 0;
             font-size: 1.5rem;
@@ -232,6 +232,26 @@
                 margin: 20px auto;
             }
         }
+
+        /* Pesan pengguna dan AI */
+        .user-message {
+            text-align: right;
+            background-color: #f57f17;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .ai-message {
+            text-align: left;
+            background-color: #e1c16e;
+            color: black;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -321,6 +341,10 @@
 
             const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
             activeLink.classList.add('active')
+
+            if (tabName !== 'ai') {
+                document.getElementById('chatboxMessages').innerHTML = '';
+            }
         }
 
         async function sendMessage() {
@@ -331,7 +355,7 @@
             const messagesContainer = document.getElementById('chatboxMessages')
             const userMessage = document.createElement('div')
             userMessage.classList.add('message', 'user-message')
-            userMessage.textContent = input
+            userMessage.textContent = 'Anda: ' + input
             messagesContainer.appendChild(userMessage)
 
             // Clear input field
@@ -350,7 +374,7 @@
 
                 const aiMessage = document.createElement('div')
                 aiMessage.classList.add('message', 'ai-message')
-                aiMessage.textContent = response.data.result
+                aiMessage.textContent = 'AI: ' + response.data.result
                 messagesContainer.appendChild(aiMessage)
 
                 // Scroll to the bottom
@@ -368,4 +392,4 @@
         }
     </script>
 </body>
-            </html>
+                </html>
