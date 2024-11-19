@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Mewah</title>
+    <title>Website Keren</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f9f9f9, #e9ecef);
+            background: linear-gradient(135deg, #f3e5ab, #e1c16e);
             color: #333;
             line-height: 1.8;
             display: flex;
@@ -17,7 +17,7 @@
             align-items: center;
         }
         header {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
             color: #fff;
             text-align: center;
             padding: 60px 20px;
@@ -47,7 +47,7 @@
             z-index: 10;
         }
         .tabs a {
-            color: #6a11cb;
+            color: #f57f17;
             padding: 15px 25px;
             text-decoration: none;
             text-align: center;
@@ -58,7 +58,7 @@
             box-shadow: inset 0 0 0 2px transparent;
         }
         .tabs a:hover, .tabs a.active {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: linear-gradient(135deg, #f57f17, #ffcc00);
             color: #fff;
             box-shadow: inset 0 0 0 2px #fff;
         }
@@ -82,7 +82,7 @@
             transform: translateY(0);
         }
         footer {
-            background: #6a11cb;
+            background: #ffcc00;
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -91,7 +91,7 @@
         }
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
             color: white;
             padding: 15px 30px;
             font-size: 1.2rem;
@@ -112,7 +112,7 @@
             margin-top: 20px;
         }
         .plan {
-            background: linear-gradient(135deg, #ffffff, #f7f9fc);
+            background: linear-gradient(135deg, #f9e6a4, #f5d244);
             padding: 20px;
             border-radius: 20px;
             flex: 1;
@@ -127,7 +127,7 @@
         .plan h3 {
             margin-top: 0;
             font-size: 1.5rem;
-            color: #2575fc;
+            color: #f57f17;
         }
         .plan ul {
             padding-left: 20px;
@@ -151,25 +151,26 @@
 </head>
 <body>
     <header>
-        <h1>Website Premium</h1>
-        <p>Kami hadirkan desain premium untuk pengalaman tak terlupakan!</p>
+        <h1>Website Keren</h1>
+        <p>Website ini dibuat dengan desain keren, warna yang energik, dan pengalaman user yang memukau!</p>
     </header>
 
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('script')">Layanan</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('contact')">Hubungi Kami</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('ai')">AI Chat</a>
     </div>
 
     <div id="home" class="content active">
         <h2>Beranda</h2>
-        <p>Selamat datang di website premium kami. Nikmati keindahan dan kemewahan desain kami.</p>
+        <p>Selamat datang di website kami yang penuh semangat dan desain memukau ini!</p>
         <a href="https://wa.me/6283831409855" target="_blank" class="cta-button">Hubungi Kami</a>
     </div>
 
     <div id="script" class="content">
         <h2>Layanan</h2>
-        <p>Pilih paket layanan terbaik untuk kebutuhan Anda!</p>
+        <p>Pilih paket layanan yang sesuai dengan kebutuhan Anda untuk mendapatkan manfaat terbaik!</p>
 
         <div class="plan-section">
             <div class="plan">
@@ -201,12 +202,27 @@
 
     <div id="contact" class="content">
         <h2>Hubungi Kami</h2>
-        <p>Kontak kami melalui <a href="https://wa.me/6289654057716" target="_blank">WhatsApp</a> atau email di vioobot@gmail.com</p>
+        <p>Hubungi kami melalui <a href="https://wa.me/6289654057716" target="_blank">WhatsApp</a> atau email di vioobot@gmail.com</p>
+    </div>
+
+    <div id="ai" class="content">
+        <h2>AI Chat</h2>
+        <p>Chat dengan AI untuk mendapatkan berbagai informasi menarik!</p>
+        <div class="chatbox-container" id="chatbox">
+            <div class="chatbox-header">Chat dengan AI</div>
+            <div class="chatbox-messages" id="chatboxMessages"></div>
+            <div class="chatbox-input">
+                <input type="text" id="userInput" placeholder="Ketik pesan..." />
+                <button onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Sanjaya Premium Design</p>
+        <p>&copy; 2024 Sanjaya - Website Keren!</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
         function showTab(tabName) {
@@ -221,6 +237,50 @@
             const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
             activeLink.classList.add('active')
         }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput').value
+            if (input.trim() === '') return
+
+            // Display user message
+            const messagesContainer = document.getElementById('chatboxMessages')
+            const userMessage = document.createElement('div')
+            userMessage.classList.add('message', 'user-message')
+            userMessage.textContent = input
+            messagesContainer.appendChild(userMessage)
+
+            // Clear input field
+            document.getElementById('userInput').value = ''
+
+            // Scroll to the bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+            // Get response from AI
+            try {
+                const response = await axios.post('https://luminai.my.id/', { 
+                    content: input, 
+                    cName: "S-AI", 
+                    cID: "S-AIbAQ0HcC" 
+                })
+
+                const aiMessage = document.createElement('div')
+                aiMessage.classList.add('message', 'ai-message')
+                aiMessage.textContent = response.data.result
+                messagesContainer.appendChild(aiMessage)
+
+                // Scroll to the bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight
+            } catch (error) {
+                console.error(error)
+                const errorMessage = document.createElement('div')
+                errorMessage.classList.add('message', 'error-message')
+                errorMessage.textContent = 'Terjadi kesalahan saat menghubungi AI.'
+                messagesContainer.appendChild(errorMessage)
+
+                // Scroll to the bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight
+            }
+        }
     </script>
 </body>
-            </html>
+</html>
