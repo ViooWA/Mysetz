@@ -39,28 +39,9 @@
               font-size: 4.1rem;
               margin: 0;
               font-weight: bold;
-              color: white;
-              background: linear-gradient(135deg, #ffcc00, #f57f17);
-              -webkit-background-clip: text;
-              color: transparent;
               text-shadow: 0 1px 0 rgba(0, 0, 0, 1);
               animation: fadeInScale 0.7s ease-out;
-        }
-        @media (prefers-color-scheme: dark) {
-           header h1 {
-              color: #ffffff;
-              -webkit-background-clip: text;
-              color: transparent;
-              text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-           }
-        }
-        @media (prefers-color-scheme: light) {
-           header h1 {
-              color: #333;
-              -webkit-background-clip: text;
-              color: transparent;
-              text-shadow: 0 1px 0 rgba(0, 0, 0, 1);
-           }
+              color: white;
         }
         @keyframes fadeInScale {
            0% {
@@ -71,6 +52,13 @@
               opacity: 1;
               transform: scale(1);
            }
+        }
+        body.mode-gelap header h1 {
+              color: white;
+        }
+
+        body.mode-kuning header h1 {
+              color: black;
         }
         header p {
             font-size: 1.3rem;
