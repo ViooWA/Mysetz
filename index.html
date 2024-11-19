@@ -559,19 +559,17 @@
     </div>
     
     <div id="ai" class="content">
-        <h2>ChatAI</h2>
-        <p>Chat dengan Vioo untuk menghibur kamu disini!</p>
-        <div id="ai" class="content">
     <h2>ChatAI</h2>
+    <p>Pilih model AI untuk chatting:</p>
+    <select id="aiModel" onchange="changeAIModel()">
+        <option value="model1">Model AI 1</option>
+        <option value="model2">Model AI 2</option>
+    </select>
     <p>Chat dengan Vioo untuk menghibur kamu disini!</p>
     <div class="chatbox-container" id="chatbox">
         <div class="chatbox-header">Chat Vioo</div>
         <div class="chatbox-messages" id="chatboxMessages"></div>
         <div class="chatbox-input">
-            <select id="model-selector">
-                <option value="1">Model 1 (Vioo)</option>
-                <option value="2">Model 2 (LuminAI)</option>
-            </select>
             <input type="text" id="userInput" placeholder="Ketik pesan..." />
             <button onclick="sendMessage()">Kirim</button>
         </div>
@@ -616,23 +614,51 @@
             }
         }
 
-    const messagesContainer = document.getElementById('chatboxMessages')
+    let selectedModel = 'model1'
+
+    function changeAIModel() {
+        selectedModel = document.getElementById('aiModel').value
+    }
+
+    async function AI1(content) {
+        try {
+            const response = await axios.post('https://luminai.my.id/', {
+                content,
+                cName: "S-AI",
+                cID: "S-AIbAQ0HcC"
+            })
+            return response.data
+        } catch (error) {
+            console.error(error)
+            throw error
+        }
+    }
+
+    async function AI2(content) {
+        try {
+            const response = await axios.post('https://luminai.my.id/', { content })
+            return response.data
+        } catch (error) {
+            console.error(error)
+            throw error
+        }
+    }
 
     async function sendMessage() {
         const input = document.getElementById('userInput').value
         if (input.trim() === '') {
-            return; // Jangan kirim pesan jika kosong
+            showWarningMessage('Pesan tidak boleh kosong!')
+            return
         }
 
-        const model = document.getElementById('model-selector').value // Mendapatkan model yang dipilih
+        const messagesContainer = document.getElementById('chatboxMessages')
 
-        // Menampilkan pesan pengguna
         const userMessage = document.createElement('div')
         userMessage.classList.add('message', 'user-message')
         userMessage.textContent = input
         messagesContainer.appendChild(userMessage)
 
-        document.getElementById('userInput').value = '' // Mengosongkan input field
+        document.getElementById('userInput').value = ''
         messagesContainer.scrollTop = messagesContainer.scrollHeight
 
         const typingIndicator = document.createElement('div')
@@ -648,20 +674,21 @@
         messagesContainer.scrollTop = messagesContainer.scrollHeight
 
         try {
-            // Pilih model berdasarkan pilihan user
-            const response = await axios.post('https://luminai.my.id/', {
-                content: input,
-                cName: model === '1' ? "ViooV2" : "S-AI", // Pilih cName berdasarkan model
-                cID: model === '1' ? "ViooV2xs12xtv" : "S-AIbAQ0HcC"  // Pilih cID berdasarkan model
-            })
+            let result
+            if (selectedModel === 'model1') {
+                const sai = await AI1(input)
+                result = sai.result
+            } else {
+                const gpt = await AI2(input)
+                result = gpt.result
+            }
 
-            typingIndicator.remove() // Hapus indikator mengetik setelah menerima jawaban
+            typingIndicator.remove()
 
             const aiMessage = document.createElement('div')
             aiMessage.classList.add('message', 'ai-message')
             messagesContainer.appendChild(aiMessage)
 
-            const result = response.data.result
             let i = 0
             const typingInterval = setInterval(() => {
                 if (i < result.length) {
@@ -671,7 +698,7 @@
                     clearInterval(typingInterval)
                 }
                 messagesContainer.scrollTop = messagesContainer.scrollHeight
-            }, 42) // Simulasi efek mengetik
+            }, 42)
         } catch (error) {
             console.error(error)
             typingIndicator.remove()
@@ -736,4 +763,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-        </html>
+    </html>
