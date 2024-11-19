@@ -45,6 +45,32 @@
             margin-top: 15px;
         }
         
+        body.mode-kuning {
+            background: linear-gradient(135deg, #f3e5ab, #e1c16e);
+            color: #333;
+        }
+
+        header.mode-kuning {
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
+        }
+
+        footer.mode-kuning {
+            background: #ffcc00;
+        }
+
+        body.mode-gelap {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: #e0e0e0;
+        }
+
+        header.mode-gelap {
+            background: linear-gradient(135deg, #3a3a3a, #212121);
+        }
+
+        footer.mode-gelap {
+            background: #333;
+        }
+        
         .tabs {
             display: flex;
             justify-content: center;
@@ -431,7 +457,9 @@
         <h1>Vioo WhatsApp</h1>
         <p>Website ini dibuat untuk mempromosikan produk dari Sanjaya dan bisa juga untuk menghibur kamu!</p>
     </header>
-
+    <main>
+       <button onclick="toggleMode()">Toggle Mode</button>
+    </main>
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('script')">Layanan</a>
@@ -521,14 +549,28 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        function toggleMode() {
+    const body = document.body;
+
+    if (body.classList.contains('mode-kuning')) {
+        body.classList.remove('mode-kuning');
+        body.classList.add('mode-gelap');
+    } else if (body.classList.contains('mode-gelap')) {
+        body.classList.remove('mode-gelap');
+        body.classList.add('mode-kuning');
+    } else {
+        body.classList.add('mode-kuning');
+    }
+}
+
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
             contents.forEach(content => content.classList.remove('active'))
 
             const links = document.querySelectorAll('.tab-link')
             links.forEach(link => link.classList.remove('active'))
-
-            document.getElementById(tabName).classList.add('active')
+            const activeTab = document.getElementById(tabName);
+            activeTab.classList.add('active');
 
             const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
             activeLink.classList.add('active')
