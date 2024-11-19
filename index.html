@@ -561,15 +561,22 @@
     <div id="ai" class="content">
         <h2>ChatAI</h2>
         <p>Chat dengan Vioo untuk menghibur kamu disini!</p>
-        <div class="chatbox-container" id="chatbox">
-            <div class="chatbox-header">Chat Vioo</div>
-            <div class="chatbox-messages" id="chatboxMessages"></div>
-            <div class="chatbox-input">
-                <input type="text" id="userInput" placeholder="Ketik pesan..." />
-                <button onclick="sendMessage()">Kirim</button>
-            </div>
+        <div id="ai" class="content">
+    <h2>ChatAI</h2>
+    <p>Chat dengan Vioo untuk menghibur kamu disini!</p>
+    <div class="chatbox-container" id="chatbox">
+        <div class="chatbox-header">Chat Vioo</div>
+        <div class="chatbox-messages" id="chatboxMessages"></div>
+        <div class="chatbox-input">
+            <select id="model-selector">
+                <option value="1">Model 1 (Vioo)</option>
+                <option value="2">Model 2 (LuminAI)</option>
+            </select>
+            <input type="text" id="userInput" placeholder="Ketik pesan..." />
+            <button onclick="sendMessage()">Kirim</button>
         </div>
     </div>
+</div>
     <footer>
         <p>&copy; 2024 Vioo - By Sanjaya</p>
     </footer>
@@ -609,71 +616,74 @@
             }
         }
 
-async function sendMessage() {
-    const input = document.getElementById('userInput').value
-    if (input.trim() === '') {
-        showWarningMessage('Pesan tidak boleh kosong!')
-        return
-    }
-
     const messagesContainer = document.getElementById('chatboxMessages')
 
-    const userMessage = document.createElement('div')
-    userMessage.classList.add('message', 'user-message')
-    userMessage.textContent = input
-    messagesContainer.appendChild(userMessage)
+    async function sendMessage() {
+        const input = document.getElementById('userInput').value
+        if (input.trim() === '') {
+            return; // Jangan kirim pesan jika kosong
+        }
 
-    document.getElementById('userInput').value = ''
-    messagesContainer.scrollTop = messagesContainer.scrollHeight
+        const model = document.getElementById('model-selector').value // Mendapatkan model yang dipilih
 
-    const typingIndicator = document.createElement('div')
-    typingIndicator.classList.add('message', 'ai-message')
-    typingIndicator.innerHTML = `
-        <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
-            <span class="loading-dot" style="background-color: #f57f17;"></span>
-            <span class="loading-dot" style="background-color: #f57f17;"></span>
-            <span class="loading-dot" style="background-color: #f57f17;"></span>
-        </div>
-    `
-    messagesContainer.appendChild(typingIndicator)
-    messagesContainer.scrollTop = messagesContainer.scrollHeight
+        // Menampilkan pesan pengguna
+        const userMessage = document.createElement('div')
+        userMessage.classList.add('message', 'user-message')
+        userMessage.textContent = input
+        messagesContainer.appendChild(userMessage)
 
-    try {
-        const response = await axios.post('https://luminai.my.id/', {
-            content: input,
-            cName: "ViooV2",
-            cID: "ViooV2xs12xtv"
-        })
-
-        typingIndicator.remove()
-
-        const aiMessage = document.createElement('div')
-        aiMessage.classList.add('message', 'ai-message')
-        messagesContainer.appendChild(aiMessage)
-
-        const result = response.data.result
-        let i = 0
-        const typingInterval = setInterval(() => {
-            if (i < result.length) {
-                aiMessage.textContent += result[i]
-                i++
-            } else {
-                clearInterval(typingInterval)
-            }
-            messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }, 42)
-    } catch (error) {
-        console.error(error)
-        typingIndicator.remove()
-
-        const errorMessage = document.createElement('div')
-        errorMessage.classList.add('message', 'error-message')
-        errorMessage.textContent = 'Terjadi kesalahan.'
-        messagesContainer.appendChild(errorMessage)
-
+        document.getElementById('userInput').value = '' // Mengosongkan input field
         messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+        const typingIndicator = document.createElement('div')
+        typingIndicator.classList.add('message', 'ai-message')
+        typingIndicator.innerHTML = `
+            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                <span class="loading-dot" style="background-color: #f57f17;"></span>
+                <span class="loading-dot" style="background-color: #f57f17;"></span>
+                <span class="loading-dot" style="background-color: #f57f17;"></span>
+            </div>
+        `
+        messagesContainer.appendChild(typingIndicator)
+        messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+        try {
+            // Pilih model berdasarkan pilihan user
+            const response = await axios.post('https://luminai.my.id/', {
+                content: input,
+                cName: model === '1' ? "ViooV2" : "S-AI", // Pilih cName berdasarkan model
+                cID: model === '1' ? "ViooV2xs12xtv" : "S-AIbAQ0HcC"  // Pilih cID berdasarkan model
+            })
+
+            typingIndicator.remove() // Hapus indikator mengetik setelah menerima jawaban
+
+            const aiMessage = document.createElement('div')
+            aiMessage.classList.add('message', 'ai-message')
+            messagesContainer.appendChild(aiMessage)
+
+            const result = response.data.result
+            let i = 0
+            const typingInterval = setInterval(() => {
+                if (i < result.length) {
+                    aiMessage.textContent += result[i]
+                    i++
+                } else {
+                    clearInterval(typingInterval)
+                }
+                messagesContainer.scrollTop = messagesContainer.scrollHeight
+            }, 42) // Simulasi efek mengetik
+        } catch (error) {
+            console.error(error)
+            typingIndicator.remove()
+
+            const errorMessage = document.createElement('div')
+            errorMessage.classList.add('message', 'error-message')
+            errorMessage.textContent = 'Terjadi kesalahan.'
+            messagesContainer.appendChild(errorMessage)
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+        }
     }
-}
 
 function showWarningMessage(message) {
     const warningMessage = document.createElement('div')
@@ -726,4 +736,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-    </html>
+        </html>
