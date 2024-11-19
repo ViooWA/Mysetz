@@ -18,11 +18,12 @@
             justify-content: flex-start;
         }
         header {
-            background: #f9a825;
+            background: linear-gradient(135deg, #fbc02d, #f57f17);
             color: #fff;
             text-align: center;
             padding: 50px 0;
             width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         header h1 {
             font-size: 3rem;
@@ -35,15 +36,14 @@
         .tabs {
             display: flex;
             justify-content: center;
-            background: #fdd835;
+            background: linear-gradient(90deg, #fdd835, #f9a825);
             padding: 10px;
-            margin-top: 0;
             border-radius: 10px 10px 0 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 120px;
-            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
             z-index: 100;
+            width: 100%;
         }
         .tabs a {
             color: #fff;
@@ -52,28 +52,36 @@
             text-align: center;
             flex: 1;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             border-radius: 5px;
+            font-weight: bold;
         }
         .tabs a:hover {
             background-color: #fbc02d;
+            transform: scale(1.05);
         }
         .tabs a.active {
-            background-color: #f57f17;
+            background: linear-gradient(90deg, #f57f17, #fbc02d);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .content {
+            opacity: 0;
+            transform: translateY(10px);
             display: none;
             padding: 20px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 160px;
+            margin-top: 20px;
             width: 90%;
             max-width: 1000px;
             text-align: center;
+            transition: opacity 0.5s, transform 0.5s;
         }
         .content.active {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
         footer {
             background: #f9a825;
@@ -83,13 +91,6 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-        }
-        a {
-            color: #ff4081;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
         }
         .cta-button {
             display: block;
@@ -112,15 +113,20 @@
             justify-content: space-around;
             gap: 20px;
             margin-top: 20px;
-            flex-wrap: wrap; /* Untuk responsif */
+            flex-wrap: wrap;
         }
         .plan {
-            background: #f9a825;
+            background: #fbc02d;
             padding: 20px;
             border-radius: 8px;
             width: 30%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .plan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         .plan h3 {
             margin-top: 0;
@@ -132,25 +138,19 @@
         .plan ul li {
             margin: 10px 0;
         }
-        .overlay {
-            border-top: 2px solid #f57f17;
-            margin: 20px 0;
-        }
-        /* Media Query untuk tampilan kecil */
         @media (max-width: 768px) {
             .tabs {
                 flex-direction: column;
-                top: 200px;
             }
             .tabs a {
                 padding: 12px;
             }
             .plan {
-                width: 100%; /* Bikin plan 100% di layar kecil */
+                width: 100%;
                 margin-bottom: 20px;
             }
             .cta-button {
-                width: 80%; /* Lebar tombol lebih kecil di layar kecil */
+                width: 80%;
             }
         }
     </style>
@@ -186,7 +186,6 @@
                     <li>Support chat grup</li>
                 </ul>
             </div>
-
             <div class="plan">
                 <h3>Plan Normal</h3>
                 <ul>
@@ -195,7 +194,6 @@
                     <li>Otomatis kirim media</li>
                 </ul>
             </div>
-
             <div class="plan">
                 <h3>Plan VIP</h3>
                 <ul>
@@ -205,8 +203,6 @@
                 </ul>
             </div>
         </div>
-
-        <div class="overlay"></div>
     </div>
 
     <div id="contact" class="content">
@@ -233,4 +229,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
