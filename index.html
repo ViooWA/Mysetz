@@ -6,38 +6,72 @@
     <title>Website Keren</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            background-color: #f4f4f9;
             color: #333;
             line-height: 1.6;
         }
         header {
-            background: #007bff;
+            background: #1E2A47;
             color: #fff;
-            padding: 1rem 0;
             text-align: center;
+            padding: 50px 0;
         }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: #007bff;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .tabs a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tabs a:hover {
+            background-color: #0056b3;
+        }
+        .tabs a.active {
+            background-color: #004085;
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
             padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .content.active {
+            display: block;
         }
         footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #007bff;
+            background: #1E2A47;
             color: #fff;
+            text-align: center;
+            padding: 20px;
             position: fixed;
-            bottom: 0;
             width: 100%;
+            bottom: 0;
         }
         a {
-            color: #007bff;
+            color: #ff4081;
             text-decoration: none;
         }
         a:hover {
@@ -48,22 +82,53 @@
 <body>
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Website ini dibuat dengan cinta dan semangat!</p>
+        <p>Website ini dibuat dengan semangat tinggi dan desain yang minimalis!</p>
     </header>
-    <main>
-        <h2>Kenapa ini website keren?</h2>
-        <p>Karena dibuat dengan hati yang besar dan teknologi gratis dari GitHub Pages.</p>
-        <h3>Fitur:</h3>
-        <ul>
-            <li>Gratis hosting selamanya</li>
-            <li>Desain sederhana tapi elegan</li>
-            <li>Mudah diakses di semua perangkat</li>
-        </ul>
-        <p>Ayo mulai perjalanan website lu sekarang!</p>
-        <p><a href="https://github.com">Pelajari lebih lanjut di GitHub</a></p>
-    </main>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Home</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('about')">About</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('contact')">Contact</a>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="home" class="content active">
+        <h2>Home</h2>
+        <p>Selamat datang di website keren ini. Ini adalah halaman utama.</p>
+    </div>
+
+    <div id="about" class="content">
+        <h2>About</h2>
+        <p>Website ini dibuat dengan tujuan belajar dan berbagi pengetahuan. Kamu bisa cari tahu lebih banyak tentang gue di sini.</p>
+    </div>
+
+    <div id="contact" class="content">
+        <h2>Contact</h2>
+        <p>Hubungi saya via <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a> atau melalui email di contoh@email.com</p>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Website Keren. Dibuat oleh gue buat lu!</p>
+        <p>&copy; 2024 Website Keren. Dibuat oleh Gue!</p>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all tab links
+            const links = document.querySelectorAll('.tab-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Show selected content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to the clicked tab
+            const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`);
+            activeLink.classList.add('active');
+        }
+    </script>
 </body>
 </html>
