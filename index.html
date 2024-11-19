@@ -47,16 +47,17 @@
         
         .tabs {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             background: #fff;
             padding: 15px 20px;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin: -30px auto 30px;
-            width: 100%;
-            max-width: none;
+            width: calc(100% - 40px);
+            max-width: 900px;
         }
         .tabs a {
+            position: relative;
             color: #f57f17;
             padding: 15px 25px;
             text-decoration: none;
@@ -64,9 +65,10 @@
             border-radius: 10px;
             font-weight: bold;
             flex: 1;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             box-shadow: inset 0 0 0 2px transparent;
         }
+        
         .tabs a:hover, .tabs a.active {
             background: linear-gradient(135deg, #f57f17, #ffcc00);
             color: #fff;
@@ -224,11 +226,40 @@
             background: #ffcc00;
         }
 
-        @media (max-width: 768px) {
-        .tabs {
+       @media (min-width: 1024px) {
+        .tabs a.active {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+       @keyframes slideIn {
+           0% {
+              transform: translateX(50px);
+              opacity: 0;
+           }
+          
+           100% {
+              transform: translateX(0);
+              opacity: 1;
+           }
+       }
+      }
+
+      @media (max-width: 768px) {
+       .tabs {
             flex-direction: column;
             align-items: center;
-        }
+       }
+
+       .tabs a {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+       }
+
+       .content {
+            width: 90%;
+       }
+      }
 
         .tabs a {
             padding: 10px;
@@ -624,4 +655,4 @@ function showWarningMessage(message) {
     }
   </style>
 </body>
-            </html>
+    </html>
