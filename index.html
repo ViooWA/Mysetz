@@ -47,14 +47,14 @@
         
         .tabs {
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             background: #fff;
             padding: 15px 20px;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin: -30px auto 30px;
-            width: calc(100% - 40px);
-            max-width: 900px;
+            width: 100%;
+            max-width: none;
         }
         .tabs a {
             color: #f57f17;
@@ -64,7 +64,7 @@
             border-radius: 10px;
             font-weight: bold;
             flex: 1;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
             box-shadow: inset 0 0 0 2px transparent;
         }
         .tabs a:hover, .tabs a.active {
