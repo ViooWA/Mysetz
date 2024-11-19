@@ -396,41 +396,50 @@
         }
 
         async function uploadFile(type) {
-            const input = type === 'image' ? document.getElementById('imageInput') : document.getElementById('videoInput')
-            const result = type === 'image' ? document.getElementById('imageResult') : document.getElementById('videoResult')
+    const input = type === 'image' ? document.getElementById('imageInput') : document.getElementById('videoInput')
+    const result = type === 'image' ? document.getElementById('imageResult') : document.getElementById('videoResult')
 
-            if (!input.files[0]) {
-                result.textContent = 'Pilih file terlebih dahulu!'
-                return
-            }
+    if (!input.files[0]) {
+        result.textContent = 'Pilih file terlebih dahulu!'
+        return
+    }
 
-            const file = input.files[0]
-            if (file.size > 5000000) {
-                result.textContent = 'File terlalu besar (max 5MB)'
-                return
-            }
-            if ((type === 'image' && !['image/jpeg', 'image/png'].includes(file.type)) || 
-                (type === 'video' && !['video/mp4', 'video/avi'].includes(file.type))) {
-                result.textContent = 'Format file tidak didukung'
-                return
-            }
+    const file = input.files[0]
+    if (file.size > 5000000) {
+        result.textContent = 'File terlalu besar (max 5MB)'
+        return
+    }
 
-            const formData = new FormData()
-            formData.append('files[]', file)
+    // Tentukan jenis file yang diizinkan
+    const allowedTypes = type === 'image' ? ['image/jpeg', 'image/png'] : ['video/mp4', 'video/avi']
+    if (!allowedTypes.includes(file.type)) {
+        result.textContent = 'Format file tidak didukung'
+        return
+    }
 
-            try {
-                result.textContent = 'Mengupload...'
-                const response = await axios.post('https://pomf.lain.la/upload.php', formData, {
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                })
+    // Siapkan formData untuk upload
+    const formData = new FormData()
+    formData.append('files[]', file)
 
-                const fileUrl = response.data.files[0].url
-                result.innerHTML = `URL: <a href="${fileUrl}" target="_blank">${fileUrl}</a>`
-            } catch (error) {
-                console.error('Error uploading file:', error)
-                result.textContent = 'Terjadi kesalahan saat mengupload file.'
-            }
+    try {
+        result.textContent = 'Mengupload...'
+
+        // Upload file ke server Pomf
+        const response = await axios.post('https://pomf.lain.la/upload.php', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+
+        if (response.data.files && response.data.files.length > 0) {
+            const fileUrl = response.data.files[0].url
+            result.innerHTML = `URL: <a href="${fileUrl}" target="_blank">${fileUrl}</a>`
+        } else {
+            result.textContent = 'Tidak ada URL yang diterima dari server'
         }
+    } catch (error) {
+        console.error('Error uploading file:', error)
+        result.textContent = 'Terjadi kesalahan saat mengupload file.'
+    }
+}
 
         async function sendMessage() {
             const input = document.getElementById('userInput').value
