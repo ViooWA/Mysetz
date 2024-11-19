@@ -91,6 +91,61 @@
             margin-top: auto;
             width: 100%;
         }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .plan-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .plan {
+            background: linear-gradient(135deg, #f9e6a4, #f5d244);
+            padding: 20px;
+            border-radius: 20px;
+            flex: 1;
+            max-width: 300px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .plan:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #f57f17;
+        }
+
+        .plan ul {
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin: 10px 0;
+        }
+
         .chatbox-container {
             width: 90%;
             max-width: 500px;
@@ -100,6 +155,7 @@
             margin: 30px auto;
             padding: 20px;
         }
+
         .chatbox-header {
             font-size: 1.5rem;
             background-color: #f57f17;
@@ -108,6 +164,7 @@
             padding: 10px;
             border-radius: 10px;
         }
+
         .chatbox-messages {
             height: 300px;
             overflow-y: auto;
@@ -117,11 +174,13 @@
             border-radius: 10px;
             box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .chatbox-input {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .chatbox-input input {
             width: 85%;
             padding: 10px;
@@ -129,6 +188,7 @@
             border-radius: 10px;
             font-size: 1rem;
         }
+
         .chatbox-input button {
             background: #f57f17;
             color: white;
@@ -139,25 +199,57 @@
             cursor: pointer;
             transition: background 0.3s;
         }
+
         .chatbox-input button:hover {
             background: #ffcc00;
         }
-        .user-message {
-            text-align: right;
-            background-color: #f57f17;
-            color: white;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tabs a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .plan-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .chatbox-container {
+                width: 95%;
+                margin: 20px auto;
+            }
         }
-        .ai-message {
-            text-align: left;
-            background-color: #e1c16e;
-            color: black;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
+        
+            .user-message {
+                text-align: right;
+                color: #f57f17;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background-color: rgba(245, 127, 23, 0.1);
+            }
+
+            .ai-message {
+                text-align: left;
+                color: #6d4c41;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background-color: rgba(109, 76, 65, 0.1);
+            }
+
     </style>
 </head>
 <body>
@@ -168,12 +260,52 @@
 
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('script')">Layanan</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('contact')">Hubungi Kami</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('ai')">AI Chat</a>
     </div>
 
     <div id="home" class="content active">
         <h2>Beranda</h2>
         <p>Selamat datang di website Vioo, kami menyediakan produk skrip yang berkualitas!!</p>
+        <a href="https://wa.me/6283831409855" target="_blank" class="cta-button">Hubungi Kami</a>
+    </div>
+
+    <div id="script" class="content">
+        <h2>Layanan</h2>
+        <p>Pilih paket skrip yang sesuai dengan kebutuhan kamu, setiap paket memiliki layanan yang berbeda.</p>
+
+        <div class="plan-section">
+            <div class="plan">
+                <h3>Plan Rendah</h3>
+                <ul>
+                    <li>3x Update</li>
+                    <li>Tanpa Grup Khusus</li>
+                    <li>Tanpa Support</li>
+                </ul>
+            </div>
+            <div class="plan">
+                <h3>Plan Menengah</h3>
+                <ul>
+                    <li>12x Update</li>
+                    <li>Tanpa Grup Khusus</li>
+                    <li>Support Terbatas</li>
+                </ul>
+            </div>
+            <div class="plan">
+                <h3>Plan Premium</h3>
+                <ul>
+                    <li>Update Tanpa Batas</li>
+                    <li>Grup Khusus</li>
+                    <li>Full Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="content">
+        <h2>Hubungi Kami</h2>
+        <p>Hubungi kami melalui <a href="https://wa.me/6289654057716" target="_blank">WhatsApp</a> atau email di vioobot@gmail.com</p>
     </div>
 
     <div id="ai" class="content">
@@ -193,40 +325,64 @@
         <p>&copy; 2024 Vioo - By Sanjaya</p>
     </footer>
 
-    <script>
-        function showTab(tabName) {
-            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'))
-            document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'))
-            document.getElementById(tabName).classList.add('active')
-            document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`).classList.add('active')
-            if (tabName !== 'ai') document.getElementById('chatboxMessages').innerHTML = ''
-        }
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-        async function sendMessage() {
-            const input = document.getElementById('userInput').value
-            if (input.trim() === '') return
-            const messagesContainer = document.getElementById('chatboxMessages')
-            const userMessage = document.createElement('div')
-            userMessage.classList.add('user-message')
-            userMessage.textContent = 'Kamu:\n' + input
-            messagesContainer.appendChild(userMessage)
-            document.getElementById('userInput').value = ''
-            messagesContainer.scrollTop = messagesContainer.scrollHeight
-            try {
-                const response = await axios.post('https://luminai.my.id/', { content: input })
-                const aiMessage = document.createElement('div')
-                aiMessage.classList.add('ai-message')
-                aiMessage.textContent = 'Vioo:\n' + response.data.result
-                messagesContainer.appendChild(aiMessage)
-                messagesContainer.scrollTop = messagesContainer.scrollHeight
-            } catch {
-                const errorMessage = document.createElement('div')
-                errorMessage.classList.add('ai-message')
-                errorMessage.textContent = 'Vioo:\nTerjadi kesalahan.'
-                messagesContainer.appendChild(errorMessage)
-                messagesContainer.scrollTop = messagesContainer.scrollHeight
-            }
+<script>
+    function showTab(tabName) {
+        const contents = document.querySelectorAll('.content')
+        contents.forEach(content => content.classList.remove('active'))
+
+        const links = document.querySelectorAll('.tab-link')
+        links.forEach(link => link.classList.remove('active'))
+
+        document.getElementById(tabName).classList.add('active')
+
+        const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
+        activeLink.classList.add('active')
+
+        if (tabName !== 'ai') {
+            document.getElementById('chatboxMessages').innerHTML = ''
         }
-    </script>
+    }
+
+    async function sendMessage() {
+        const input = document.getElementById('userInput').value
+        if (input.trim() === '') return
+
+        const messagesContainer = document.getElementById('chatboxMessages')
+
+        const userMessage = document.createElement('div')
+        userMessage.classList.add('message', 'user-message')
+        userMessage.textContent = input
+        messagesContainer.appendChild(userMessage)
+
+        document.getElementById('userInput').value = ''
+        messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+        try {
+            const response = await axios.post('https://luminai.my.id/', {
+                content: input,
+                cName: "S-AI",
+                cID: "S-AIbAQ0HcC"
+            })
+
+            const aiMessage = document.createElement('div')
+            aiMessage.classList.add('message', 'ai-message')
+            aiMessage.textContent = response.data.result
+            messagesContainer.appendChild(aiMessage)
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+        } catch (error) {
+            console.error(error)
+
+            const errorMessage = document.createElement('div')
+            errorMessage.classList.add('message', 'error-message')
+            errorMessage.textContent = 'Terjadi kesalahan.'
+            messagesContainer.appendChild(errorMessage)
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+        }
+    }
+</script>
 </body>
-    </html>
+        </html>
