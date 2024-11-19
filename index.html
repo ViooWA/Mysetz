@@ -653,7 +653,7 @@ async function sendMessage() {
                 clearInterval(typingInterval)
             }
             messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }, 50)
+        }, 42)
     } catch (error) {
         console.error(error)
         typingIndicator.remove()
@@ -685,7 +685,7 @@ function showWarningMessage(message) {
         setTimeout(() => {
             warningMessage.remove()
         }, 500)
-    }, 3000)
+    }, 2000)
 }
     </script>
   <style>
