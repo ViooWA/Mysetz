@@ -304,19 +304,23 @@
             top: 20px;
             right: 20px;
             background-color: #ffcc00;
-            padding: 15px;
+            padding: 10px;
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-size: 24px;
             color: white;
             cursor: pointer;
-            animation: bounce 1s infinite;
-            transition: transform 0.3s ease;
-            z-index: 1000; /* Agar tetap di atas */
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .bell-icon i {
+            font-size: 24px;
         }
 
         .bell-icon:hover {
             transform: scale(1.1);
+            background-color: #f57f17;
         }
 
         @keyframes bounce {
