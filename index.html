@@ -263,6 +263,32 @@
                 border-radius: 5px;
                 background-color: rgba(109, 76, 65, 0.1);
             }
+            
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                background: white;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px;
+                z-index: 1000;
+                margin-top: 5px;
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 8px 12px;
+                text-decoration: none;
+                color: #333;
+                font-size: 1rem;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+
+            .dropdown-menu a:hover {
+                background: #f5f5f5;
+            }
 
     </style>
 </head>
@@ -276,7 +302,7 @@
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('script')">Layanan</a>
         <a href="javascript:void(0)" class="tab-link" onclick="showTab('contact')">Hubungi Kami</a>
-        <a href="javascript:void(0)" class="tab-link" onclick="showTab('ai')">ChatAI</a>
+        <a href="javascript:void(0)" class="tab-link" onclick="showTab('ai')">Lainnya</a>
     </div>
 
     <div id="home" class="content active">
@@ -323,8 +349,29 @@
     </div>
 
     <div id="ai" class="content">
+        <h2>Lainnya</h2>
+        <p>Pilih layanan tambahan di bawah ini:</p>
+        <a href="javascript:void(0)" onclick="showContent('imageUpload')">Image To URL</a><br>
+        <a href="javascript:void(0)" onclick="showContent('videoUpload')">Video To URL</a><br>
+        <a href="javascript:void(0)" onclick="showTab('chatai')">ChatAI</a>
+    </div>
+
+    <div id="imageUpload" class="content">
+        <h2>Image To URL</h2>
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="uploadFile('image')">Upload</button>
+        <p id="imageResult"></p>
+    </div>
+
+    <div id="videoUpload" class="content">
+        <h2>Video To URL</h2>
+        <input type="file" id="videoInput" accept="video/*">
+        <button onclick="uploadFile('video')">Upload</button>
+        <p id="videoResult"></p>
+    </div>
+
+    <div id="chatai" class="content">
         <h2>ChatAI</h2>
-        <p>Chat dengan Vioo untuk menghibur kamu disini!</p>
         <div class="chatbox-container" id="chatbox">
             <div class="chatbox-header">Chat Vioo</div>
             <div class="chatbox-messages" id="chatboxMessages"></div>
@@ -339,64 +386,90 @@
         <p>&copy; 2024 Vioo - By Sanjaya</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.content')
+            contents.forEach(content => content.classList.remove('active'))
 
-   <script>
-       function showTab(tabName) {
-           const contents = document.querySelectorAll('.content')
-           contents.forEach(content => content.classList.remove('active'))
+            const links = document.querySelectorAll('.tab-link')
+            links.forEach(link => link.classList.remove('active'))
 
-           const links = document.querySelectorAll('.tab-link')
-           links.forEach(link => link.classList.remove('active'))
+            document.getElementById(tabName).classList.add('active')
 
-           document.getElementById(tabName).classList.add('active')
+            const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
+            if (activeLink) activeLink.classList.add('active')
+        }
 
-           const activeLink = document.querySelector(`.tab-link[onclick="showTab('${tabName}')"]`)
-           activeLink.classList.add('active')
+        function showContent(contentId) {
+            const contents = document.querySelectorAll('.content')
+            contents.forEach(content => content.classList.remove('active'))
 
-           if (tabName !== 'ai') {
-               document.getElementById('chatboxMessages').innerHTML = ''
-           }
-       }
+            document.getElementById(contentId).classList.add('active')
+        }
 
-       async function sendMessage() {
-           const input = document.getElementById('userInput').value
-           if (input.trim() === '') return
+        async function uploadFile(type) {
+            const input = type === 'image' ? document.getElementById('imageInput') : document.getElementById('videoInput')
+            const result = type === 'image' ? document.getElementById('imageResult') : document.getElementById('videoResult')
 
-           const messagesContainer = document.getElementById('chatboxMessages')
+            if (!input.files[0]) {
+                result.textContent = 'Pilih file terlebih dahulu!'
+                return
+            }
 
-           const userMessage = document.createElement('div')
-           userMessage.classList.add('message', 'user-message')
-           userMessage.textContent = input
-           messagesContainer.appendChild(userMessage)
+            const formData = new FormData()
+            formData.append('files[]', input.files[0])
 
-           document.getElementById('userInput').value = ''
-           messagesContainer.scrollTop = messagesContainer.scrollHeight
+            try {
+                const response = await axios.post('https://pomf.lain.la/upload.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
 
-           try {
-               const response = await axios.post('https://luminai.my.id/', {
-                   content: input,
-                   cName: "ViooV2",
-                   cID: "ViooV2xs12xtv"
-               })
+                const fileUrl = response.data.files[0].url
+                result.innerHTML = `URL: <a href="${fileUrl}" target="_blank">${fileUrl}</a>`
+            } catch (error) {
+                console.error('Error uploading file:', error)
+                result.textContent = 'Terjadi kesalahan saat mengupload file.'
+            }
+        }
 
-               const aiMessage = document.createElement('div')
-               aiMessage.classList.add('message', 'ai-message')
-               aiMessage.textContent = response.data.result
-               messagesContainer.appendChild(aiMessage)
+        async function sendMessage() {
+            const input = document.getElementById('userInput').value
+            if (input.trim() === '') return
 
-               messagesContainer.scrollTop = messagesContainer.scrollHeight
-           } catch (error) {
-               console.error(error)
+            const messagesContainer = document.getElementById('chatboxMessages')
 
-               const errorMessage = document.createElement('div')
-               errorMessage.classList.add('message', 'error-message')
-               errorMessage.textContent = 'Terjadi kesalahan.'
-               messagesContainer.appendChild(errorMessage)
+            const userMessage = document.createElement('div')
+            userMessage.classList.add('message', 'user-message')
+            userMessage.textContent = input
+            messagesContainer.appendChild(userMessage)
 
-               messagesContainer.scrollTop = messagesContainer.scrollHeight
-           }
-       }
-   </script>
+            document.getElementById('userInput').value = ''
+            messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+            try {
+                const response = await axios.post('https://luminai.my.id/', {
+                    content: input,
+                    cName: "ViooV2",
+                    cID: "ViooV2xs12xtv"
+                })
+
+                const aiMessage = document.createElement('div')
+                aiMessage.classList.add('message', 'ai-message')
+                aiMessage.textContent = response.data.result
+                messagesContainer.appendChild(aiMessage)
+
+                messagesContainer.scrollTop = messagesContainer.scrollHeight
+            } catch (error) {
+                console.error(error)
+
+                const errorMessage = document.createElement('div')
+                errorMessage.classList.add('message', 'error-message')
+                errorMessage.textContent = 'Terjadi kesalahan.'
+                messagesContainer.appendChild(errorMessage)
+            }
+        }
+    </script>
 </body>
-</html>
+    </html>
