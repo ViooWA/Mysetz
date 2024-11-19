@@ -238,6 +238,31 @@
         }
         }
 
+            .mail-logo, .profile-logo {
+                position: fixed;
+                top: 20px;
+                z-index: 10;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+            }
+
+            .mail-logo {
+                right: 20px;
+                background-color: #ffcc00;
+            }
+
+            .profile-logo {
+                left: 20px;
+                background-color: #f57f17;
+            }
+
+            .mail-logo img, .profile-logo img {
+                width: 40px;
+                height: 40px;
+            }
+
             .plan-section {
                 flex-direction: column;
                 align-items: center;
@@ -299,71 +324,6 @@
             }
         }
         
-        .bell-notification {
-            position: fixed;
-            top: 10px; /* Menurunkan sedikit dari atas */
-            right: 10px; /* Posisikan di kanan */
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .notification-count {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: #ff3d00;
-            color: #fff;
-            padding: 3px 8px;
-            border-radius: 50%;
-            font-size: 0.9rem;
-        }
-
-        .notification-menu {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            z-index: 9999;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-           body.active-blur {
-           backdrop-filter: blur(5px);
-        }
-
-        .bell-icon {
-           position: fixed;
-           top: 10px;
-           right: 10px;
-           z-index: 1000;
-           cursor: pointer;
-        }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        color: #333;
-        cursor: pointer;
-    }
-
-    .close-btn:hover {
-        color: #ff3d00;
-    }
-
         @keyframes bounce {
              0% { transform: translateY(0); }
              50% { transform: translateY(-10px); }
@@ -378,6 +338,18 @@
         <h1>Vioo WhatsApp</h1>
         <p>Website ini dibuat untuk mempromosikan produk dari Sanjaya dan bisa juga untuk menghibur kamu!</p>
     </header>
+    
+      <div class="mail-icon">
+        <a href="mailto:sanjayaadiputra376@gmail.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mail_icon_rounded.svg/1200px-Mail_icon_rounded.svg.png" alt="Email">
+        </a>
+    </div>
+
+    <div class="developer-profile">
+        <a href="https://pomf2.lain.la/f/7udnlgb.jpg" target="_blank">
+            <img src="your-profile-image-url" alt="Developer Profile">
+        </a>
+    </div>
 
     <div class="tabs">
         <a href="javascript:void(0)" class="tab-link active" onclick="showTab('home')">Beranda</a>
@@ -446,30 +418,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-    function toggleNotification() {
-        const notificationMenu = document.getElementById('notification-menu');
-        const notificationCount = document.getElementById('notification-count');
-        const body = document.body;
-
-    if (notificationMenu.style.display === 'block') {
-        notificationMenu.style.display = 'none';
-        body.classList.remove('active-blur');
-    } else {
-        notificationMenu.style.display = 'block';
-        body.classList.add('active-blur');
-    }
-
-        notificationCount.textContent = '0';
-    }
-
-    function closeNotification() {
-       const notificationMenu = document.getElementById('notification-menu');
-       const body = document.body;
-
-       notificationMenu.style.display = 'none';
-       body.classList.remove('active-blur');
-    }
-        
         function showTab(tabName) {
             const contents = document.querySelectorAll('.content')
             contents.forEach(content => content.classList.remove('active'))
@@ -515,7 +463,6 @@
                     cID: "ViooV2xs12xtv"
                 })
 
-                // Hapus titik-titik dan tampilkan respon AI
                 typingIndicator.remove()
 
                 const aiMessage = document.createElement('div')
@@ -539,4 +486,4 @@
         }
     </script>
 </body>
-                </html>
+</html>
