@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Keren</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #fffde7, #ffe082);
-            color: #444;
+            background: linear-gradient(135deg, #f3e5ab, #e1c16e);
+            color: #333;
             line-height: 1.8;
             display: flex;
             flex-direction: column;
@@ -21,62 +19,61 @@
             min-height: 100vh;
         }
         header {
-            background: linear-gradient(135deg, #ffd740, #fbc02d);
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
             color: #fff;
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
             width: 100%;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border-bottom: 5px solid #ffab00;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
         header h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin: 0;
-            font-weight: 700;
+            font-weight: bold;
         }
         header p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-top: 15px;
         }
         .tabs {
             display: flex;
             justify-content: center;
             background: #fff;
-            padding: 20px;
-            border-radius: 30px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            margin: -40px auto 0;
-            width: calc(100% - 60px);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: -30px auto 0;
+            width: calc(100% - 40px);
             max-width: 900px;
             position: relative;
             z-index: 10;
         }
         .tabs a {
-            color: #fbc02d;
-            padding: 15px 30px;
+            color: #f57f17;
+            padding: 15px 25px;
             text-decoration: none;
             text-align: center;
-            border-radius: 15px;
-            font-weight: 700;
+            border-radius: 10px;
+            font-weight: bold;
             flex: 1;
             transition: all 0.3s ease;
             box-shadow: inset 0 0 0 2px transparent;
         }
         .tabs a:hover, .tabs a.active {
-            background: linear-gradient(135deg, #fbc02d, #ffd740);
+            background: linear-gradient(135deg, #f57f17, #ffcc00);
             color: #fff;
             box-shadow: inset 0 0 0 2px #fff;
         }
         .content {
             opacity: 0;
             display: none;
-            transform: translateY(20px);
-            padding: 25px;
+            transform: translateY(10px);
+            padding: 20px;
             background: #fff;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-            margin: 40px auto 0;
-            width: calc(100% - 60px);
+            margin: 30px auto 0;
+            width: calc(100% - 40px);
             max-width: 800px;
             text-align: center;
             transition: all 0.5s ease;
@@ -87,102 +84,172 @@
             transform: translateY(0);
         }
         footer {
-            background: #ffd740;
+            background: #ffcc00;
             color: #fff;
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             margin-top: auto;
             width: 100%;
-            box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.1);
-            border-top: 5px solid #ffab00;
         }
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #ffd740, #fbc02d);
+            background: linear-gradient(135deg, #ffcc00, #f57f17);
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             font-size: 1.2rem;
             border-radius: 50px;
             text-decoration: none;
-            margin-top: 25px;
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
         .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         .plan-section {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            justify-content: space-around;
             flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
         }
+
         .plan {
-            background: linear-gradient(135deg, #fff3e0, #ffd740);
-            padding: 30px;
-            border-radius: 25px;
-            max-width: 300px;
+            background: linear-gradient(135deg, #f9e6a4, #f5d244);
+            padding: 20px;
+            border-radius: 20px;
             flex: 1;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             text-align: center;
         }
+
         .plan:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
+
         .plan h3 {
             margin-top: 0;
-            font-size: 1.7rem;
-            color: #fbc02d;
+            font-size: 1.5rem;
+            color: #f57f17;
         }
+
+        .plan ul {
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin: 10px 0;
+        }
+
         .chatbox-container {
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
             background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            margin: 40px auto;
-            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            padding: 20px;
         }
+
         .chatbox-header {
-            font-size: 1.7rem;
-            background-color: #fbc02d;
+            font-size: 1.5rem;
+            background-color: #f57f17;
             color: #fff;
             text-align: center;
-            padding: 15px;
-            border-radius: 15px;
+            padding: 10px;
+            border-radius: 10px;
         }
+
         .chatbox-messages {
-            height: 350px;
+            height: 300px;
             overflow-y: auto;
-            margin: 25px 0;
-            padding: 15px;
-            background: #fffde7;
-            border-radius: 15px;
-            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 10px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .chatbox-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .chatbox-input input {
             width: 85%;
-            padding: 15px;
+            padding: 10px;
             border: 2px solid #ddd;
-            border-radius: 15px;
+            border-radius: 10px;
             font-size: 1rem;
         }
+
         .chatbox-input button {
-            background: #fbc02d;
+            background: #f57f17;
             color: white;
             border: none;
-            border-radius: 15px;
-            padding: 15px 25px;
+            border-radius: 10px;
+            padding: 10px 20px;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s;
         }
+
         .chatbox-input button:hover {
-            background: #ffd740;
+            background: #ffcc00;
         }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tabs a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .plan-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .chatbox-container {
+                width: 95%;
+                margin: 20px auto;
+            }
+        }
+
+        .user-message {
+            text-align: right;
+            background-color: #f57f17;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .ai-message {
+            text-align: left;
+            background-color: #e1c16e;
+            color: black;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -317,4 +384,4 @@
         }
     </script>
 </body>
-    </html>
+            </html>
