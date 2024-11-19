@@ -299,59 +299,55 @@
             }
         }
         
-   .bell-notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-    }
+        .bell-notification {
+            position: fixed;
+            top: 10px; /* Menurunkan sedikit dari atas */
+            right: 10px; /* Posisikan di kanan */
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .bell-icon {
-        position: relative;
-        cursor: pointer;
-        font-size: 2rem;
-        color: #f57f17;
-    }
+        .notification-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: #ff3d00;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
 
-    .notification-count {
-        position: absolute;
-        top: -5px;
-        right: -10px;
-        background-color: #ff3d00;
-        color: #fff;
-        padding: 3px 8px;
-        border-radius: 50%;
-        font-size: 0.8rem;
-    }
+        .notification-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            z-index: 9999;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
 
-    .notification-menu {
-        display: none;
-        position: absolute;
-        top: 30px;
-        right: 0;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 10px 20px;
-        width: 200px;
-        z-index: 9999;
-    }
+           body.active-blur {
+           backdrop-filter: blur(5px);
+        }
 
-    .notification-menu ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .notification-menu ul li {
-        padding: 8px 0;
-        font-size: 1rem;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .notification-menu ul li:last-child {
-        border-bottom: none;
-    }
+        .bell-icon {
+           position: fixed;
+           top: 10px;
+           right: 10px;
+           z-index: 1000;
+           cursor: pointer;
+        }
 
     .close-btn {
         position: absolute;
@@ -378,21 +374,6 @@
     </style>
 </head>
 <body>
-    div class="bell-notification">
-    <div class="bell-icon" onclick="toggleNotification()">
-        <span class="bell">&#128276;</span>
-        <span id="notification-count" class="notification-count">3</span>
-    </div>
-    <div id="notification-menu" class="notification-menu">
-        <button class="close-btn" onclick="closeNotification()">X</button>
-        <ul>
-            <li>Pesan baru dari ChatAI</li>
-            <li>Update terbaru di Vioo WhatsApp</li>
-            <li>Pemberitahuan sistem</li>
-        </ul>
-    </div>
-</div>
-    
     <header>
         <h1>Vioo WhatsApp</h1>
         <p>Website ini dibuat untuk mempromosikan produk dari Sanjaya dan bisa juga untuk menghibur kamu!</p>
@@ -468,19 +449,25 @@
     function toggleNotification() {
         const notificationMenu = document.getElementById('notification-menu');
         const notificationCount = document.getElementById('notification-count');
+        const body = document.body;
 
-        if (notificationMenu.style.display === 'block') {
-            notificationMenu.style.display = 'none';
-        } else {
-            notificationMenu.style.display = 'block';
-        }
+    if (notificationMenu.style.display === 'block') {
+        notificationMenu.style.display = 'none';
+        body.classList.remove('active-blur');
+    } else {
+        notificationMenu.style.display = 'block';
+        body.classList.add('active-blur');
+    }
 
         notificationCount.textContent = '0';
     }
 
     function closeNotification() {
-        const notificationMenu = document.getElementById('notification-menu');
-        notificationMenu.style.display = 'none';
+       const notificationMenu = document.getElementById('notification-menu');
+       const body = document.body;
+
+       notificationMenu.style.display = 'none';
+       body.classList.remove('active-blur');
     }
         
         function showTab(tabName) {
@@ -540,7 +527,6 @@
             } catch (error) {
                 console.error(error)
 
-                // Hapus titik-titik jika terjadi error
                 typingIndicator.remove()
 
                 const errorMessage = document.createElement('div')
@@ -553,4 +539,4 @@
         }
     </script>
 </body>
-            </html>
+                </html>
