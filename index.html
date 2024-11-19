@@ -357,81 +357,79 @@
            if (tabName !== 'ai') {
                document.getElementById('chatboxMessages').innerHTML = ''
            }
-    }
-
-    let loadingInterval;
+       }
 
     async function sendMessage() {
-        const input = document.getElementById('userInput').value
-        if (input.trim() === '') return
+    const input = document.getElementById('userInput').value
+    if (input.trim() === '') return
 
-        const messagesContainer = document.getElementById('chatboxMessages')
+    const messagesContainer = document.getElementById('chatboxMessages')
 
-        const userMessage = document.createElement('div')
-        userMessage.classList.add('message', 'user-message')
-        userMessage.textContent = input
-        messagesContainer.appendChild(userMessage)
+    const userMessage = document.createElement('div')
+    userMessage.classList.add('message', 'user-message')
+    userMessage.textContent = input
+    messagesContainer.appendChild(userMessage)
 
-        document.getElementById('userInput').value = ''
+    document.getElementById('userInput').value = ''
+    messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+    const loadingMessage = document.createElement('div')
+    loadingMessage.classList.add('message', 'ai-message', 'loading-message')
+    messagesContainer.appendChild(loadingMessage)
+    messagesContainer.scrollTop = messagesContainer.scrollHeight
+
+    try {
+        const response = await axios.post('https://luminai.my.id/', {
+            content: input,
+            cName: "ViooV2",
+            cID: "ViooV2xs12xtv"
+        })
+
+        loadingMessage.textContent = ''
+        loadingMessage.classList.remove('loading-message')
+
+        const aiMessage = document.createElement('div')
+        aiMessage.classList.add('message', 'ai-message')
+        aiMessage.textContent = response.data.result
+        messagesContainer.appendChild(aiMessage)
+
         messagesContainer.scrollTop = messagesContainer.scrollHeight
+    } catch (error) {
+        console.error(error)
 
-        const loadingMessage = document.createElement('div')
-        loadingMessage.classList.add('message', 'ai-message', 'loading-message')
-        loadingMessage.textContent = '....'
-        messagesContainer.appendChild(loadingMessage)
+        loadingMessage.textContent = ''
+        loadingMessage.classList.remove('loading-message')
+
+        const errorMessage = document.createElement('div')
+        errorMessage.classList.add('message', 'error-message')
+        errorMessage.textContent = 'Terjadi kesalahan.'
+        messagesContainer.appendChild(errorMessage)
+
         messagesContainer.scrollTop = messagesContainer.scrollHeight
-
-        loadingInterval = setInterval(() => {
-            const dots = loadingMessage.textContent.split('.').length - 1;
-            loadingMessage.textContent = '.'.repeat((dots % 3) + 1);
-        }, 500);
-
-        try {
-            const response = await axios.post('https://luminai.my.id/', {
-                content: input,
-                cName: "ViooV2",
-                cID: "ViooV2xs12xtv"
-            })
-
-            clearInterval(loadingInterval);
-
-            loadingMessage.textContent = response.data.result;
-
-            messagesContainer.scrollTop = messagesContainer.scrollHeight
-        } catch (error) {
-            console.error(error)
-
-            clearInterval(loadingInterval);
-
-            const errorMessage = document.createElement('div')
-            errorMessage.classList.add('message', 'error-message')
-            errorMessage.textContent = 'Terjadi kesalahan.'
-            messagesContainer.appendChild(errorMessage)
-
-            messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }
     }
+}
 </script>
 
 <style>
-    @keyframes moveUp {
-        0% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        50% {
-            opacity: 0.5;
-            transform: translateY(-10px);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
+    @keyframes loadingDots {
+    0% {
+        content: '....';
     }
+    33% {
+        content: '...';
+    }
+    66% {
+        content: '..';
+    }
+    100% {
+        content: '.';
+    }
+}
 
-    .loading-message {
-        animation: moveUp 2s ease-in-out infinite;
-    }
+.loading-message::after {
+    content: '....';
+    animation: loadingDots 1.5s infinite;
+}
 </style>
 </body>
-                </html>
+            </html>
