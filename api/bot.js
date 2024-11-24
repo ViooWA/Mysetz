@@ -1,32 +1,33 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
+    console.log("HTTP Method:", req.method);
+    console.log("Query Params:", req.query);
+
     if (req.method === 'GET') {
-        const { text, user, imageBuffer } = req.query;
+        const { text } = req.query;
 
         if (!text) {
-            return res.status(400).json({ error: 'Text is required' });
-        }
-
-        const requestData = {
-            content: text,
-            user
-        };
-
-        if (imageBuffer) {
-            requestData.imageBuffer = imageBuffer;
+            console.error("Error: Text is required");
+            return res.status(400).json({ error: 'Contoh penggunaan: ?text=halo' });
         }
 
         try {
-            const response = await axios.post('https://luminai.my.id/', requestData);
+            const response = await axios.get(
+                `https://api.agatz.xyz/api/megpt?message=${encodeURIComponent(text)}`
+            );
+            console.log("Response from External API:", response.data);
+
             return res.status(200).json({
                 status: true,
-                result: response.data.result
+                result: response.data.data,
             });
         } catch (err) {
+            console.error("External API Error:", err.message);
             return res.status(500).json({ error: err.message });
         }
     } else {
+        console.warn("Invalid HTTP Method:", req.method);
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
-}
+    }
