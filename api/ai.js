@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
             return res.status(200).json({
                 status: true,
-                result: response.data,
+                result: response.data.result,
             });
         } catch (err) {
             console.error("External API Error:", err.message);
