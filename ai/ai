@@ -14,13 +14,13 @@ export default async function handler(req, res) {
 
         try {
             const response = await axios.get(
-                `https://api.agatz.xyz/api/megpt?message=${encodeURIComponent(text)}`
+                `https://aemt.uk.to/openai?text=${encodeURIComponent(text)}`
             );
             console.log("Response from External API:", response.data);
 
             return res.status(200).json({
                 status: true,
-                result: response.data.data,
+                result: response.result,
             });
         } catch (err) {
             console.error("External API Error:", err.message);
