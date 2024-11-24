@@ -1,10 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.PORT || 3000;
 app.use(express.json());
 
-app.get('/api', async (req, res) => {
+app.get('/', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
@@ -31,6 +30,4 @@ app.get('/api', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+module.exports = app;
