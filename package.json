@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "axios": "0.24.0",
-    "whatsapp-web.js": "^1.19.4"
+    "axios": "1.7.7",
+    "express": "4.21.1"
   },
   "scripts": {
     "start": "vercel dev"

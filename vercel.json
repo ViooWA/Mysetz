@@ -12,18 +12,12 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/(.*).js",
+      "dest": "/api/$1.js"
     },
     {
       "src": "/(.*)",
       "dest": "/public/$1"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:slug",
-      "destination": "/api/:slug.js"
     }
   ]
 }
