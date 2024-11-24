@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 app.use(express.json());
 
-app.get('/api/ai.js', async (req, res) => {
+app.get('/api/ai', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
@@ -22,7 +22,7 @@ app.get('/api/ai.js', async (req, res) => {
 
         return res.status(200).json({
             status: true,
-            result: response.data,
+            result: response.data.result,
         });
     } catch (err) {
         console.error("External API Error:", err.message);
