@@ -7,7 +7,7 @@ app.enable("trust proxy");
 app.set("json spaces", 2);
 app.use(cors());
 
-app.get('/api/ai', async (req, res) => {
+app.get('/api/ai.js', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
