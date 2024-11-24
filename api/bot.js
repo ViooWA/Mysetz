@@ -1,21 +1,32 @@
-// api/bot.js
+import axios from 'axios';
 
-export default function handler(req, res) {
-    // Pastikan hanya menerima request POST
-    if (req.method === 'POST') {
-        const { text } = req.body; // Ambil teks dari request body
+export default async function handler(req, res) {
+    if (req.method === 'GET') {
+        const { text, user, imageBuffer } = req.query;
 
-        // Logika bot (misalnya, balasan standar untuk setiap pesan)
-        const responseMessage = `Hello! I’m GPTGO AI, your virtual assistant. How can I help you today?`;
+        if (!text) {
+            return res.status(400).json({ error: 'Text is required' });
+        }
 
-        // Kembalikan response dalam format JSON
-        res.status(200).json({
-            status: true,
-            creator: "aemt.uk.to",
-            result: responseMessage
-        });
+        const requestData = {
+            content: text,
+            user
+        };
+
+        if (imageBuffer) {
+            requestData.imageBuffer = imageBuffer;
+        }
+
+        try {
+            const response = await axios.post('https://luminai.my.id/', requestData);
+            return res.status(200).json({
+                status: true,
+                result: response.data.result
+            });
+        } catch (err) {
+            return res.status(500).json({ error: err.message });
+        }
     } else {
-        // Jika request bukan POST, kirimkan error 405 (Method Not Allowed)
-        res.status(405).json({ error: 'Method Not Allowed' });
+        return res.status(405).json({ error: 'Method Not Allowed' });
     }
 }
