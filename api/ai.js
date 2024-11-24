@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 app.use(express.json());
 
-app.get('/', async (req, res) => {
+app.get('/ai.js', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
