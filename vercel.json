@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*",
+      "src": "api/**/*.js",
       "use": "@vercel/node"
     },
     {
@@ -23,7 +23,7 @@
   "rewrites": [
     {
       "source": "/api/:slug",
-      "destination": "/api/:slug"
+      "destination": "/api/:slug.js"
     }
   ]
 }
