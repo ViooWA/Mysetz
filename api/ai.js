@@ -1,9 +1,13 @@
-const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
+const express = require('express');
 const app = express();
-app.use(express.json());
+const PORT = process.env.PORT || 3000;
+app.enable("trust proxy");
+app.set("json spaces", 2);
+app.use(cors());
 
-app.get('/api/ai.js', async (req, res) => {
+app.get('/api/ai', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
@@ -30,4 +34,6 @@ app.get('/api/ai.js', async (req, res) => {
     }
 });
 
-module.exports = app;
+app.listen(PORT, () => {
+console.log(`Server started on http://localhost:${PORT}`);
+});
