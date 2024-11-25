@@ -1,81 +1,144 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
+  background: linear-gradient(135deg, #ffb703, #faa307, #fefae0);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s infinite ease-in-out;
   color: #333;
+  overflow-x: hidden;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #4caf50;
+  font-size: 3rem;
+  color: #ffb703;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
   text-align: center;
-  color: #555;
+  color: #fff;
   margin-top: -10px;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 header {
-  padding: 2rem 0;
-  background: #e8f5e9;
-  border-bottom: 2px solid #4caf50;
-}
-
-main {
-  padding: 2rem 0;
+  padding: 2.5rem 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-bottom: 2px solid #ffb703;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .card {
-  background: #fff;
+  position: relative;
+  background: linear-gradient(135deg, #fff3e0, #ffffff);
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 1rem 0;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  margin: 1.5rem 0;
   padding: 1.5rem;
-  transition: transform 0.2s;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 183, 3, 0.15), transparent 60%);
+  z-index: 0;
+  animation: gradientBackground 10s infinite ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
   margin: 0;
   color: #333;
+  font-size: 1.7rem;
+  z-index: 1;
 }
 
 .card p {
   color: #666;
   margin: 0.5rem 0 1rem 0;
+  z-index: 1;
 }
 
 .card button {
-  background: #4caf50;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ffb703;
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card button:hover {
-  background: #43a047;
+  background: #faa307;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 footer {
   text-align: center;
-  padding: 1rem 0;
-  background: #e8f5e9;
-  color: #666;
+  padding: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
   margin-top: 2rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ffb703;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+footer p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
