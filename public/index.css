@@ -1,9 +1,9 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #f4a261, #e76f51, #fefae0);
+  background: linear-gradient(135deg, #0d253f, #1b2d4f);
   background-size: 400% 400%;
-  color: #333;
+  color: #f5f5f5;
   overflow-x: hidden;
 }
 
@@ -11,41 +11,61 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   font-size: 3rem;
-  color: #f4a261;
+  color: #ffffff;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 2s ease;
 }
 
 .subtitle {
   text-align: center;
-  color: #fefae0;
+  color: #a0c4ff;
   margin-top: -10px;
   font-size: 1.2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 2.5s ease;
 }
 
 header {
   padding: 2.5rem 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-bottom: 2px solid #f4a261;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(13, 37, 63, 0.9);
+  border-bottom: 2px solid #1b2d4f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+  animation: slideInFromTop 1.5s ease;
+}
+
+@keyframes slideInFromTop {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .card {
   position: relative;
-  background: linear-gradient(135deg, #ffffff, #fefae0);
-  border: 1px solid #ddd;
+  background: linear-gradient(135deg, #1b2d4f, #324a68);
+  border: 1px solid #2b3c5e;
   border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   margin: 1.5rem 0;
   padding: 1.5rem;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .card::before {
@@ -55,24 +75,29 @@ header {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(244, 166, 97, 0.15), transparent 60%);
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.15), transparent 60%);
   z-index: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover::before {
+  opacity: 0.3;
 }
 
 .card h3 {
   margin: 0;
-  color: #333;
+  color: #a0c4ff;
   font-size: 1.7rem;
   z-index: 1;
 }
 
 .card p {
-  color: #666;
+  color: #d1eaff;
   margin: 0.5rem 0 1rem 0;
   z-index: 1;
 }
@@ -81,33 +106,39 @@ header {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #e76f51;
+  background: #00509e;
   color: #fff;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card button:hover {
-  background: #d65a3d;
+  background: #004080;
   transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 footer {
   text-align: center;
   padding: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: #1b2d4f;
+  color: #f5f5f5;
   margin-top: 2rem;
-  border-top: 1px solid #f4a261;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #2b3c5e;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+  animation: slideInFromBottom 1.5s ease;
+}
+
+@keyframes slideInFromBottom {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 footer p {
