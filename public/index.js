@@ -24,6 +24,14 @@ const features = [
     query: "text=Hai%20kamu"
   },
   {
+    name: "SimiSimi",
+    method: "GET",
+    description: "AI/simisimi",
+    category: "AI",
+    endpoint: "../api/simisimi.js",
+    query: "text=Hai%20kamu"
+  },
+  {
     name: "Google-Search",
     method: "GET",
     description: "Search/google",
