@@ -42,7 +42,7 @@ header {
   border: 1px solid #2b3c5e;
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -115,7 +115,7 @@ header {
 .category-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.1rem;
+  gap: 0.25rem;
   justify-content: space-between;
 }
 footer {
