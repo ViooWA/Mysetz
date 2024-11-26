@@ -65,21 +65,26 @@ const features = [
   }
 ];
 
-const featureContainer = document.getElementById("features");
-
 function createCategorySection(categoryName) {
   const categorySection = document.createElement("div");
-  categorySection.classList.add("category-section");
-  categorySection.innerHTML = `<h2>${categoryName}</h2><div class="category-cards"></div>`;
+  categorySection.classList.add("col-12", "mb-4");
+
+  categorySection.innerHTML = `
+    <h3 class="text-center gradient-text">${categoryName}</h3>
+    <div class="row g-4 category-cards"></div>
+  `;
+
   return categorySection;
 }
 
 function redirectToEndpoint(endpoint, query) {
   const fullUrl = `${endpoint}?${query}`;
-  location.href = fullUrl;
+  window.open(fullUrl, "_blank");
 }
 
+const featureContainer = document.getElementById("feature-list");
 const categories = [...new Set(features.map((feature) => feature.category))];
+
 categories.forEach((category) => {
   const categorySection = createCategorySection(category);
   const categoryCards = categorySection.querySelector(".category-cards");
@@ -88,14 +93,20 @@ categories.forEach((category) => {
     .filter((feature) => feature.category === category)
     .forEach((feature) => {
       const card = document.createElement("div");
-      card.classList.add("card");
+      card.classList.add("col-lg-4", "col-md-6", "col-sm-12");
+
       card.innerHTML = `
-        <h3>${feature.name}</h3>
-        <p>${feature.description}</p>
-        <button onclick="redirectToEndpoint('${feature.endpoint}', '${feature.query}')">
-          ${feature.method}
-        </button>
+        <div class="card text-center shadow">
+          <div class="card-header gradient-bg">${feature.name}</div>
+          <div class="card-body">
+            <p class="card-text">${feature.description}</p>
+            <button class="btn gradient-button" onclick="redirectToEndpoint('${feature.endpoint}', '${feature.query}')">
+              ${feature.method}
+            </button>
+          </div>
+        </div>
       `;
+
       categoryCards.appendChild(card);
     });
 
