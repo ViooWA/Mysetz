@@ -1,9 +1,8 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #ffb703, #faa307, #fefae0);
+  background: linear-gradient(135deg, #f4a261, #e76f51, #fefae0);
   background-size: 400% 400%;
-  animation: gradientBackground 15s infinite ease-in-out;
   color: #333;
   overflow-x: hidden;
 }
@@ -12,19 +11,18 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
   font-size: 3rem;
-  color: #ffb703;
+  color: #f4a261;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
   text-align: center;
-  color: #fff;
+  color: #fefae0;
   margin-top: -10px;
   font-size: 1.2rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -32,22 +30,21 @@ h1 {
 
 header {
   padding: 2.5rem 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-bottom: 2px solid #ffb703;
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid #f4a261;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
 
 .card {
   position: relative;
-  background: linear-gradient(135deg, #fff3e0, #ffffff);
+  background: linear-gradient(135deg, #ffffff, #fefae0);
   border: 1px solid #ddd;
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   margin: 1.5rem 0;
   padding: 1.5rem;
   overflow: hidden;
-  animation: fadeIn 0.8s ease-in-out;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -58,9 +55,8 @@ header {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 183, 3, 0.15), transparent 60%);
+  background: radial-gradient(circle, rgba(244, 166, 97, 0.15), transparent 60%);
   z-index: 0;
-  animation: gradientBackground 10s infinite ease-in-out;
 }
 
 .card:hover {
@@ -85,7 +81,7 @@ header {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #ffb703;
+  background: #e76f51;
   color: #fff;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -98,7 +94,7 @@ header {
 }
 
 .card button:hover {
-  background: #faa307;
+  background: #d65a3d;
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -106,10 +102,10 @@ header {
 footer {
   text-align: center;
   padding: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
   margin-top: 2rem;
-  border-top: 1px solid #ffb703;
+  border-top: 1px solid #f4a261;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
@@ -117,28 +113,4 @@ footer {
 footer p {
   font-size: 1rem;
   letter-spacing: 1px;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes gradientBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
