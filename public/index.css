@@ -42,12 +42,16 @@ header {
 
 .card {
   position: relative;
+  width: 300px;
   background: linear-gradient(135deg, #1b2d4f, #324a68);
   border: 1px solid #2b3c5e;
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   margin: 1.5rem 0;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   animation: fadeInScale 0.7s ease-out;
@@ -77,20 +81,23 @@ header {
 .card h3 {
   margin: 0;
   color: #a0c4ff;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  word-wrap: break-word;
   z-index: 1;
 }
 
 .card p {
   color: #d1eaff;
   margin: 0.5rem 0 1rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
   z-index: 1;
 }
 
 .card button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   background: #00509e;
   color: #fff;
   border: none;
@@ -124,6 +131,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: space-between;
 }
 
 footer {
