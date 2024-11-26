@@ -11,7 +11,7 @@ app.use(cors());
 const apiKey = 'AIzaSyAajE2Y-Kgl8bjPyFvHQ-PgRUSMWgBEsSk';
 const cx = 'e5c2be9c3f94c4bbb';
 
-app.get('/api/search', async (req, res) => {
+app.get('/api/google.js', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
     const { text } = req.query;
