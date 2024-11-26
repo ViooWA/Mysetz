@@ -7,7 +7,7 @@ app.enable("trust proxy");
 app.set("json spaces", 2);
 app.use(cors());
 
-app.get('/api/blackbox.js', (req, res) => {
+app.get('/api/blackbox', (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
