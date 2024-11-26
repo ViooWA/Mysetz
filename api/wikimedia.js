@@ -12,23 +12,26 @@ app.get('/api/wikimedia.js', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
-    const { text } = req.text;
+    const { text } = req.query; 
+    
     if (!text) {
         return res.json({
             status: false,
             result: 'Contoh penggunaan: ?text=Harimau'
         });
     }
+
     try {
-        const response = await axios.get(
-            `https://itzpire.com/search/wikimedia?query=${encodeURIComponent(text)}`
-        );
+        const apiUrl = `https://itzpire.com/search/wikimedia?query=${encodeURIComponent(text)}`;
+        console.log("Requesting External API URL:", apiUrl);
+
+        const response = await axios.get(apiUrl);
         console.log("Response from External API:", response.data);
 
         if (response.data.status !== "success") {
             return res.json({
                 status: false,
-                result: 'Error'
+                result: 'Error: API returned failure'
             });
         }
 
@@ -36,6 +39,7 @@ app.get('/api/wikimedia.js', async (req, res) => {
             status: true,
             images: response.data.data,
         });
+
     } catch (err) {
         console.error("External API Error:", err.message);
         console.error("Full Error Details:", err.response ? err.response.data : err);
@@ -51,7 +55,8 @@ app.get('/api/wikimedia.js', async (req, res) => {
                 })
             }
         };
-        return res.json(errorResponse);
+
+        return res.status(500).json(errorResponse);
     }
 });
 
