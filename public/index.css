@@ -67,7 +67,7 @@ header {
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   margin: 0.4rem 0;
-  padding: 1.0rem;
+  padding: 0.70rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,7 +128,7 @@ header {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .category-section {
-  margin-top: 0.70rem;
+  margin-top: 0.40rem;
 }
 .category-section h2 {
   font-size: 2rem;
@@ -139,7 +139,7 @@ header {
 .category-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.14rem;
+  gap: 1.20rem;
   justify-content: space-between;
 }
 footer {
