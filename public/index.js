@@ -4,7 +4,7 @@ const features = [
     method: "GET",
     description: "AI/openai",
     category: "AI",
-    endpoint: "../api/ai.js",
+    endpoint: "../api/openai.js",
     query: "text=Hai%20kamu"
   },
   {
@@ -46,6 +46,22 @@ const features = [
     category: "Search",
     endpoint: "../api/npm.js",
     query: "text=axios"
+  },
+  {
+    name: "Pinterest",
+    method: "GET",
+    description: "Search/pinterest",
+    category: "Search",
+    endpoint: "../api/pinterest.js",
+    query: "text=Kylian%20Mbappe"
+  },
+  {
+    name: "Wikimedia",
+    method: "GET",
+    description: "Search/wikimedia",
+    category: "Search",
+    endpoint: "../api/wikimedia.js",
+    query: "text=Harimau"
   }
 ];
 
