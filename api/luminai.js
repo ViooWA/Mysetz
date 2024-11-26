@@ -8,7 +8,7 @@ app.enable("trust proxy");
 app.set("json spaces", 2);
 app.use(cors());
 
-app.get('/api/luminai', (req, res) => {
+app.get('/api/luminai.js', (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
