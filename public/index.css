@@ -10,14 +10,14 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
 }
 h1 {
   font-size: 3rem;
   color: #ffffff;
   text-align: center;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
 }
 .subtitle {
   text-align: center;
@@ -25,7 +25,7 @@ h1 {
   margin-top: -10px;
   font-size: 1.2rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
 }
 header {
   padding: 2.5rem 0;
@@ -33,7 +33,31 @@ header {
   border-bottom: 2px solid #1b2d4f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
+}
+.navbar {
+  padding: 1rem;
+}
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.navbar-nav .nav-link {
+  color: #a0c4ff !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: #d1eaff !important;
+}
+.navbar-toggler {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2888, 144, 255, 0.8%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 .card {
   position: relative;
@@ -49,7 +73,7 @@ header {
   justify-content: space-between;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
 }
 .card::before {
   content: '';
@@ -103,21 +127,6 @@ header {
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-.category-section {
-  margin-top: 2rem;
-}
-.category-section h2 {
-  font-size: 2rem;
-  color: #a0c4ff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
-}
-.category-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.14rem;
-  justify-content: space-between;
-}
 footer {
   text-align: center;
   padding: 1.5rem 0;
@@ -127,7 +136,7 @@ footer {
   border-top: 1px solid #2b3c5e;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  animation: fadeInScale 0.7s ease-out;
+  animation: fadeInScale 0.5s ease-out;
 }
 footer p {
   font-size: 1rem;
