@@ -28,12 +28,11 @@ h1 {
   animation: fadeInScale 0.5s ease-out;
 }
 header {
-  padding: 1rem 0;
+  padding: 2.5rem 0;
   background: rgba(13, 37, 63, 0.9);
   border-bottom: 2px solid #1b2d4f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  margin-bottom: 0;
   animation: fadeInScale 0.5s ease-out;
 }
 .navbar {
@@ -68,7 +67,7 @@ header {
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   margin: 0.4rem 0;
-  padding: 0.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,7 +128,7 @@ header {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .category-section {
-  margin-top: -0.5rem;
+  margin-top: 2rem;
 }
 .category-section h2 {
   font-size: 2rem;
