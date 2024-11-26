@@ -11,12 +11,7 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  animation: fadeInScale 0.7s ease-out;
 }
 
 h1 {
@@ -24,7 +19,7 @@ h1 {
   color: #ffffff;
   text-align: center;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 2s ease;
+  animation: fadeInScale 0.7s ease-out;
 }
 
 .subtitle {
@@ -33,7 +28,7 @@ h1 {
   margin-top: -10px;
   font-size: 1.2rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 2.5s ease;
+  animation: fadeInScale 0.7s ease-out;
 }
 
 header {
@@ -42,12 +37,7 @@ header {
   border-bottom: 2px solid #1b2d4f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  animation: slideInFromTop 1.5s ease;
-}
-
-@keyframes slideInFromTop {
-  0% { transform: translateY(-100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  animation: fadeInScale 0.7s ease-out;
 }
 
 .card {
@@ -60,12 +50,7 @@ header {
   padding: 1.5rem;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-  animation: fadeInUp 1.5s ease;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  animation: fadeInScale 0.7s ease-out;
 }
 
 .card::before {
@@ -133,15 +118,21 @@ footer {
   border-top: 1px solid #2b3c5e;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  animation: slideInFromBottom 1.5s ease;
-}
-
-@keyframes slideInFromBottom {
-  0% { transform: translateY(100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  animation: fadeInScale 0.7s ease-out;
 }
 
 footer p {
   font-size: 1rem;
   letter-spacing: 1px;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
