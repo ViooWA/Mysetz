@@ -6,14 +6,12 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   animation: fadeInScale 0.7s ease-out;
 }
-
 h1 {
   font-size: 3rem;
   color: #ffffff;
@@ -21,7 +19,6 @@ h1 {
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
   animation: fadeInScale 0.7s ease-out;
 }
-
 .subtitle {
   text-align: center;
   color: #a0c4ff;
@@ -30,7 +27,6 @@ h1 {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   animation: fadeInScale 0.7s ease-out;
 }
-
 header {
   padding: 2.5rem 0;
   background: rgba(13, 37, 63, 0.9);
@@ -39,7 +35,6 @@ header {
   backdrop-filter: blur(10px);
   animation: fadeInScale 0.7s ease-out;
 }
-
 .card {
   position: relative;
   width: 300px;
@@ -47,7 +42,7 @@ header {
   border: 1px solid #2b3c5e;
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -56,7 +51,6 @@ header {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   animation: fadeInScale 0.7s ease-out;
 }
-
 .card::before {
   content: '';
   position: absolute;
@@ -68,16 +62,13 @@ header {
   z-index: 0;
   transition: opacity 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
-
 .card:hover::before {
   opacity: 0.3;
 }
-
 .card h3 {
   margin: 0;
   color: #a0c4ff;
@@ -85,7 +76,6 @@ header {
   word-wrap: break-word;
   z-index: 1;
 }
-
 .card p {
   color: #d1eaff;
   margin: 0.5rem 0 1rem 0;
@@ -93,7 +83,6 @@ header {
   line-height: 1.4;
   z-index: 1;
 }
-
 .card button {
   position: absolute;
   top: 1rem;
@@ -109,31 +98,26 @@ header {
   z-index: 1;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card button:hover {
   background: #004080;
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
 .category-section {
   margin-top: 2rem;
 }
-
 .category-section h2 {
   font-size: 2rem;
   color: #a0c4ff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 1rem;
 }
-
 .category-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: space-between;
 }
-
 footer {
   text-align: center;
   padding: 1.5rem 0;
@@ -145,12 +129,10 @@ footer {
   backdrop-filter: blur(10px);
   animation: fadeInScale 0.7s ease-out;
 }
-
 footer p {
   font-size: 1rem;
   letter-spacing: 1px;
 }
-
 @keyframes fadeInScale {
   0% {
     opacity: 0;
