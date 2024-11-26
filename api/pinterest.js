@@ -37,7 +37,7 @@ app.get('/api/pinterest.js', async (req, res) => {
 
         return res.json({
             status: true,
-            images: response.data.data,
+            result: response.data.data,
         });
 
     } catch (err) {
