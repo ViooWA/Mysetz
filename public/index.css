@@ -9,7 +9,7 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   animation: fadeInScale 0.5s ease-out;
 }
 h1 {
@@ -28,7 +28,7 @@ h1 {
   animation: fadeInScale 0.5s ease-out;
 }
 header {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   background: rgba(13, 37, 63, 0.9);
   border-bottom: 2px solid #1b2d4f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -128,7 +128,7 @@ header {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .category-section {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .category-section h2 {
   font-size: 2rem;
@@ -141,6 +141,16 @@ header {
   flex-wrap: wrap;
   gap: 0.14rem;
   justify-content: space-between;
+}
+.container.text-center {
+  margin-bottom: 0;
+}
+body, h1, p, section {
+  margin: 0;
+  padding: 0;
+}
+#features {
+  margin-top: 1rem;
 }
 footer {
   text-align: center;
