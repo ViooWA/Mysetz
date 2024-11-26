@@ -134,7 +134,6 @@ header {
   font-size: 2rem;
   color: #a0c4ff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
 }
 .category-cards {
   display: flex;
