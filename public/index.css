@@ -73,7 +73,7 @@ header {
   justify-content: space-between;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-  animation: fadeInScale 0.5s ease-out;
+  animation: fadeInScale 0.7s ease-out;
 }
 .card::before {
   content: '';
@@ -126,6 +126,21 @@ header {
   background: #004080;
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.category-section {
+  margin-top: 2rem;
+}
+.category-section h2 {
+  font-size: 2rem;
+  color: #a0c4ff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+}
+.category-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.14rem;
+  justify-content: space-between;
 }
 footer {
   text-align: center;
