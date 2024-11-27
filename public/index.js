@@ -98,9 +98,9 @@ const features = [
   {
     name: "Txt-Image",
     method: "GET",
-    description: "Maker/txtimage",
+    description: "Maker/txtimg",
     category: "Maker",
-    endpoint: "../api/txtimage.js",
+    endpoint: "../api/txtimg.js",
     query: "text=Halo%20kamu"
   }
 ];
