@@ -62,14 +62,6 @@ const features = [
     category: "Search",
     endpoint: "../api/wikimedia.js",
     query: "text=Harimau"
-  },
-  {
-    name: "ToURL",
-    method: "POST",
-    description: "Search/tourl",
-    category: "Convert",
-    endpoint: "../api/tourl.js",
-    query: ""
   }
 ];
 
