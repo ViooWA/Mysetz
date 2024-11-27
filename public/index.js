@@ -77,9 +77,22 @@ function createCategorySection(categoryName) {
   return categorySection;
 }
 
-function redirectToEndpoint(endpoint, query) {
+function redirectToEndpoint(endpoint, query, method) {
   const fullUrl = `${endpoint}?${query}`;
-  window.open(fullUrl, "_blank");
+  if (method === "GET") {
+    window.open(fullUrl, "_blank");
+  } else if (method === "POST") {
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(new URLSearchParams(query))),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Response:", data))
+      .catch((error) => console.error("Error:", error));
+  }
 }
 
 const featureContainer = document.getElementById("feature-list");
@@ -100,7 +113,7 @@ categories.forEach((category) => {
           <div class="card-header gradient-bg">${feature.name}</div>
           <div class="card-body">
             <p class="card-text">${feature.description}</p>
-            <button class="btn gradient-button" onclick="redirectToEndpoint('${feature.endpoint}', '${feature.query}')">
+            <button class="btn gradient-button" onclick="redirectToEndpoint('${feature.endpoint}', '${feature.query}', '${feature.method}')">
               ${feature.method}
             </button>
           </div>
