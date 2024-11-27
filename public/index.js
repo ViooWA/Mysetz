@@ -70,6 +70,14 @@ const features = [
     category: "Search",
     endpoint: "../api/wikimedia.js",
     query: "text=Harimau"
+  },
+  {
+    name: "Brat-Sticker",
+    method: "GET",
+    description: "Maker/brat",
+    category: "Maker",
+    endpoint: "../api/brat.js",
+    query: "text=Halo%20kamu"
   }
 ];
 
