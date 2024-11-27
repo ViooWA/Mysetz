@@ -103,7 +103,7 @@ function redirectToEndpoint(endpoint, query, method) {
   }
 }
 
-const featureContainer = document.getElementById("feature-list");
+const featureContainer = document.getElementById("feature");
 const categories = [...new Set(features.map((feature) => feature.category))];
 
 categories.forEach((category) => {
