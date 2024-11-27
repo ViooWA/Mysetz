@@ -8,7 +8,7 @@ app.enable("trust proxy");
 app.set("json spaces", 2);
 app.use(cors());
 
-app.get('/api/txtimg.js', async (req, res) => {
+app.get('/api/txtimg', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
 
@@ -21,33 +21,22 @@ app.get('/api/txtimg.js', async (req, res) => {
     }
 
     try {
-        const apiUrl = 'https://www.text-image.com/api';
-        const requestData = {
-            text: text,
-            bgColor: '#000000',
-            textColor: '#FFFFFF',
-            fontSize: 24
-        };
+        const apiUrl = 'https://image-charts.com/chart';
+        const chartUrl = `${apiUrl}?cht=tx&chf=bg,s,00000000&chs=400x200&chco=FFFFFF&chl=${encodeURIComponent(text)}`;
 
-        const response = await axios.post(apiUrl, requestData, { responseType: 'arraybuffer' });
+        const response = await axios.get(chartUrl, { responseType: 'arraybuffer' });
 
-        console.log("Response from TextImage API:", response.data);
+        console.log("Image-Charts Response:", response.data);
 
         res.set('Content-Type', 'image/png');
         res.send(response.data);
     } catch (err) {
-        console.error("TextImage API Error:", err.message);
-        console.error("Full Error Details:", err.response ? err.response.data : err);
+        console.error("Error generating image:", err.message);
 
         const errorResponse = {
             status: false,
             result: {
                 error: err.message,
-                ...(err.response && {
-                    status: err.response.status,
-                    data: err.response.data,
-                    headers: err.response.headers
-                })
             }
         };
         return res.json(errorResponse);
