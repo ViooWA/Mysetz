@@ -18,25 +18,30 @@
       -webkit-text-fill-color: transparent;
     }
     .gradient-button {
-      background: linear-gradient(135deg, #1b2d4f, #324a68);
+      background-color: #1b2d4f;
       color: white;
-      transition: transform 0.3s;
+      border: 2px solid #324a68;
+      transition: transform 0.3s, background-color 0.3s;
     }
     .gradient-button:hover {
+      background-color: #324a68;
       transform: scale(1.05);
     }
     .card {
-      background: linear-gradient(135deg, #1b2d4f, #324a68);
+      background-color: #1b2d4f;
       color: white;
       border: none;
+      transition: box-shadow 0.3s, transform 0.3s;
     }
     .card:hover {
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       transform: translateY(-5px);
-      transition: 0.3s;
     }
     .text-primary {
-      color: #1b2d4f;
+      color: #4ade80;
+    }
+    header h1, header p {
+      color: #fff;
     }
   </style>
 </head>
@@ -65,7 +70,7 @@
   <header class="text-center py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white">
     <h1 class="text-5xl font-bold gradient-text mb-4">Welcome to V-APIs</h1>
     <p class="text-lg mb-8">Discover cutting-edge features designed for a smarter, faster, and better experience!</p>
-    <button class="btn gradient-button px-5 py-3 text-lg">Get Started</button>
+    <p class="text-lg font-semibold mt-6">Explore our features below!</p>
   </header>
   <main class="container my-8" id="features">
     <h2 class="text-center text-4xl gradient-text font-semibold mb-10">Our Features</h2>
