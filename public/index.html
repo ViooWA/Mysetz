@@ -28,9 +28,10 @@
       transform: scale(1.05);
     }
     .card {
-      background-color: #1b2d4f;
+      background-color: #2c3e50;
       color: white;
       border: none;
+      border-radius: 12px;
       transition: box-shadow 0.3s, transform 0.3s;
     }
     .card:hover {
@@ -42,6 +43,12 @@
     }
     header h1, header p {
       color: #fff;
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-nav .nav-link.active {
+      color: #4ade80 !important;
     }
   </style>
 </head>
@@ -74,7 +81,8 @@
   </header>
   <main class="container my-8" id="features">
     <h2 class="text-center text-4xl gradient-text font-semibold mb-10">Our Features</h2>
-    <div id="feature-list" class="row g-4"></div>
+    <div id="feature-list" class="row g-4">
+    </div>
   </main>
   <section id="about" class="py-16 bg-white">
     <div class="container">
