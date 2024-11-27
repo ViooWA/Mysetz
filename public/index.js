@@ -78,6 +78,30 @@ const features = [
     category: "Maker",
     endpoint: "../api/brat.js",
     query: "text=Halo%20kamu"
+  },
+  {
+    name: "Yt-Comment",
+    method: "GET",
+    description: "Maker/ytcomment",
+    category: "Maker",
+    endpoint: "../api/ytcomment.js",
+    query: "text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
+  },
+  {
+    name: "Carbonify",
+    method: "GET",
+    description: "Maker/carbon",
+    category: "Maker",
+    endpoint: "../api/carbon.js",
+    query: "text=Halo%20kamu"
+  },
+  {
+    name: "Txt-Image",
+    method: "GET",
+    description: "Maker/txtimage",
+    category: "Maker",
+    endpoint: "../api/txtimage.js",
+    query: "text=Halo%20kamu"
   }
 ];
 
