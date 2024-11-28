@@ -140,14 +140,14 @@ const response = await axios.get(
 `https://api.siputzx.my.id/api/m/brat?text=${encodeURIComponent(text)}`,
 { responseType: 'arraybuffer' }
 );
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(response.data);
 } else if (endpoint === 'ytcomment') { // YTCOMMENT
 const response = await axios.get(
 `https://some-random-api.com/canvas/misc/youtube-comment?comment=${encodeURIComponent(text)}&avatar=${encodeURIComponent(avatar)}&username=${encodeURIComponent(username)}`,
 { responseType: 'arraybuffer' }
 );
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(response.data);
 } else if (endpoint === 'carbon') { // CARBONIFY
 try {
@@ -156,24 +156,24 @@ const response = await axios.get(
 { responseType: 'arraybuffer' }
 );
 
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(response.data);
 
 } catch (err) {
 try {
 const buffer = await CarbonifyV1(text);
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(buffer);
 } catch (v1Error) {
 const buffer = await CarbonifyV2(text);
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(buffer);
 }}
 } else if (endpoint === 'txtimg') { // TXTIMG
 const apiUrl = `https://dummyimage.com/600x400/000/fff&text=${encodeURIComponent(text)}`;
 const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
-res.set('Content-Type', 'image/png');
+res.setHeader('Content-Type', 'image/png');
 res.send(response.data);
 } else if (endpoint === 'mediafire') { // MEDIAFIRE
 const response = await axios.get(`https://api.vreden.my.id/api/mediafiredl?url=${url}`);
