@@ -266,7 +266,48 @@ return res.status(200).json({
 status: true,
 data: response.data.data,
 });
-}
+} else if (tag === 'otakudesu-src') { // OTKD-SRC
+const response = await axios.get(`https://api.siputzx.my.id/api/anime/otakudesu/search?s=${encodeURIComponent(text)}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'otakudesu-detail') { // OTKD-DETAIL
+const response = await axios.get(`https://api.siputzx.my.id/api/anime/otakudesu/detail?url=${url}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'otakudesu-ongoing') { // OTKD-ONGOING
+const response = await axios.get(`https://api.siputzx.my.id/api/anime/otakudesu/ongoing?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'otakudesu-dl') { // OTKD-DL
+const response = await axios.get(`https://api.siputzx.my.id/api/anime/otakudesu/download?url=${url}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'abatch-src') { // ABATCH-SRC
+const response = await axios.get(`https://api.agatz.xyz/api/animebatch?message=${encodeURIComponent(text)}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'abatch-dl') { // ABATCH-DL
+const response = await axios.get(`https://api.agatz.xyz/api/animebatchinfo?url=${url}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
 
 // === Catch akhir
 } catch (err) {
