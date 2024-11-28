@@ -13,7 +13,7 @@ const features = [
     description: "AI/openai",
     category: "AI",
     endpoint: "../api.js",
-    query: "endpoint=openai&text=Hai%20kamu"
+    query: "tag=openai&text=Hai%20kamu"
   },
   {
     name: "BlackBox",
@@ -21,7 +21,7 @@ const features = [
     description: "AI/blackbox",
     category: "AI",
     endpoint: "../api.js",
-    query: "endpoint=blackbox&text=Hai%20kamu"
+    query: "tag=blackbox&text=Hai%20kamu"
   },
   {
     name: "LuminAI",
@@ -29,7 +29,7 @@ const features = [
     description: "AI/luminai",
     category: "AI",
     endpoint: "../api.js",
-    query: "endpoint=luminai&text=Hai%20kamu"
+    query: "tag=luminai&text=Hai%20kamu"
   },
   {
     name: "SimiSimi",
@@ -37,7 +37,7 @@ const features = [
     description: "AI/simisimi",
     category: "AI",
     endpoint: "../api.js",
-    query: "endpoint=simisimi&text=Hai%20kamu"
+    query: "tag=simisimi&text=Hai%20kamu"
   },
   {
     name: "Google-Search",
@@ -45,7 +45,7 @@ const features = [
     description: "Search/google",
     category: "Search",
     endpoint: "../api.js",
-    query: "endpoint=google&text=Kylian%20Mbappe"
+    query: "tag=google&text=Kylian%20Mbappe"
   },
   {
     name: "NPM Search",
@@ -53,7 +53,7 @@ const features = [
     description: "Search/npm",
     category: "Search",
     endpoint: "../api.js",
-    query: "endpoint=npm&text=axios"
+    query: "tag=npm&text=axios"
   },
   {
     name: "Pinterest",
@@ -61,7 +61,7 @@ const features = [
     description: "Search/pinterest",
     category: "Search",
     endpoint: "../api.js",
-    query: "endpoint=pinterest&text=Kylian%20Mbappe"
+    query: "tag=pinterest&text=Kylian%20Mbappe"
   },
   {
     name: "Wikimedia",
@@ -69,7 +69,7 @@ const features = [
     description: "Search/wikimedia",
     category: "Search",
     endpoint: "../api.js",
-    query: "endpoint=wikimedia&text=Harimau"
+    query: "tag=wikimedia&text=Harimau"
   },
   {
     name: "Brat-Sticker",
@@ -77,7 +77,7 @@ const features = [
     description: "Maker/brat",
     category: "Maker",
     endpoint: "../api.js",
-    query: "endpoint=brat&text=Halo%20kamu"
+    query: "tag=brat&text=Halo%20kamu"
   },
   {
     name: "Yt-Comment",
@@ -85,7 +85,7 @@ const features = [
     description: "Maker/ytcomment",
     category: "Maker",
     endpoint: "../api.js",
-    query: "endpoint=ytcomment&text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
+    query: "tag=ytcomment&text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
   },
   {
     name: "Carbonify",
@@ -93,7 +93,7 @@ const features = [
     description: "Maker/carbon",
     category: "Maker",
     endpoint: "../api.js",
-    query: "endpoint=carbon&text=Halo%20kamu"
+    query: "tag=carbon&text=Halo%20kamu"
   },
   {
     name: "Txt-Image",
@@ -101,7 +101,7 @@ const features = [
     description: "Maker/txtimg",
     category: "Maker",
     endpoint: "../api.js",
-    query: "endpoint=txtimg&text=Halo%20kamu"
+    query: "tag=txtimg&text=Halo%20kamu"
   },
   {
     name: "MediaFire",
@@ -109,7 +109,7 @@ const features = [
     description: "Downloader/mediafire",
     category: "Downloader",
     endpoint: "../api.js",
-    query: "endpoint=mediafire&url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
+    query: "tag=mediafire&url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
   },
   {
     name: "Tiktok",
@@ -117,7 +117,7 @@ const features = [
     description: "Downloader/ttdl",
     category: "Downloader",
     endpoint: "../api.js",
-    query: "endpoint=ttdl&url=https://vm.tiktok.com/ZSjVn47bC/"
+    query: "tag=ttdl&url=https://vm.tiktok.com/ZSjVn47bC/"
   },
   {
     name: "Instagram",
@@ -125,7 +125,7 @@ const features = [
     description: "Downloader/igdl",
     category: "Downloader",
     endpoint: "../api.js",
-    query: "endpoint=igdl&url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
+    query: "tag=igdl&url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
   },
   {
     name: "Facebook",
@@ -133,7 +133,7 @@ const features = [
     description: "Downloader/fbdl",
     category: "Downloader",
     endpoint: "../api.js",
-    query: "endpoint=fbdl&url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
+    query: "tag=fbdl&url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
   }
 ];
 
