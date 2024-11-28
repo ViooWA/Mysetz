@@ -102,6 +102,38 @@ const features = [
     category: "Maker",
     endpoint: "../api/txtimg.js",
     query: "text=Halo%20kamu"
+  },
+  {
+    name: "MediaFire",
+    method: "GET",
+    description: "Downloader/mediafire",
+    category: "Downloader",
+    endpoint: "../api/mediafire.js",
+    query: "url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
+  },
+  {
+    name: "Tiktok",
+    method: "GET",
+    description: "Downloader/ttdl",
+    category: "Downloader",
+    endpoint: "../api/ttdl.js",
+    query: "url=https://vm.tiktok.com/ZSjVn47bC/"
+  },
+  {
+    name: "Instagram",
+    method: "GET",
+    description: "Downloader/igdl",
+    category: "Downloader",
+    endpoint: "../api/igdl.js",
+    query: "url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
+  },
+  {
+    name: "Facebook",
+    method: "GET",
+    description: "Downloader/fbdl",
+    category: "Downloader",
+    endpoint: "../api/fbdl.js",
+    query: "url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
   }
 ];
 
