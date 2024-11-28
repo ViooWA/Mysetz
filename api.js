@@ -80,6 +80,20 @@ return res.status(200).json({
 status: true,
 result: response.data.result,
 });
+} else if (tag === 'moshiai') { // MOSHIAI
+const response = await axios.get(`https://api.siputzx.my.id/api/ai/moshiai?input=${encodeURIComponent(text)}`
+);
+return res.status(200).json({
+status: true,
+result: response.data.data,
+});
+} else if (tag === 'latukam') { // LATUKAM
+const response = await axios.get(`https://api.siputzx.my.id/api/ai/latukam?content=${encodeURIComponent(text)}`
+);
+return res.status(200).json({
+status: true,
+result: response.data.data,
+});
 } else if (tag === 'google') { // GOOGLE
 const response = await axios.get(`https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(text)}&key=AIzaSyAajE2Y-Kgl8bjPyFvHQ-PgRUSMWgBEsSk&cx=e5c2be9c3f94c4bbb`);
 const items = response.data.items;
