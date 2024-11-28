@@ -198,6 +198,54 @@ const features = [
     category: "Downloader",
     endpoint: "../api.js",
     query: "tag=gdrive&url=https://drive.google.com/file/d/1YTD7Ymux9puFNqu__5WPlYdFZHcGI3Wz/view?usp=drivesdk"
+  },
+  {
+    name: "Otakudesu-Search",
+    method: "GET",
+    description: "Anime/otakudesu-src",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=otakudesu-src&text=Naruto"
+  },
+  {
+    name: "Otakudesu-Detail",
+    method: "GET",
+    description: "Anime/otakudesu-detail",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=otakudesu-detail&url=https://otakudesu.cloud/lengkap/btr-nng-sub-indo-part-1"
+  },
+  {
+    name: "Otakudesu-Ongoing",
+    method: "GET",
+    description: "Anime/otakudesu-ongoing",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=otakudesu-ongoing"
+  },
+  {
+    name: "Otakudesu-Download",
+    method: "GET",
+    description: "Anime/otakudesu-dl",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=otakudesu-dl&url=https://otakudesu.cloud/lengkap/btr-nng-sub-indo-part-1"
+  },
+  {
+    name: "Animebatch-Search",
+    method: "GET",
+    description: "Anime/abatch-src",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=abatch-src&text=Maou"
+  },
+  {
+    name: "Animebatch-Download",
+    method: "GET",
+    description: "Anime/abatch-dl",
+    category: "Anime",
+    endpoint: "../api.js",
+    query: "tag=abatch-dl&url=https://www.animebatch.id/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-sub-indo/"
   }
 ];
 
