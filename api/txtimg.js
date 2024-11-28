@@ -21,12 +21,11 @@ app.get('/api/txtimg.js', async (req, res) => {
     }
 
     try {
-        const apiUrl = 'https://image-charts.com/chart';
-        const chartUrl = `${apiUrl}?cht=tx&chf=bg,s,00000000&chs=400x200&chco=FFFFFF&chl=${encodeURIComponent(text)}`;
+        const apiUrl = `https://dummyimage.com/600x400/000/fff&text=${encodeURIComponent(text)}`;
+        
+        console.log("Generated API URL:", apiUrl);
 
-        const response = await axios.get(chartUrl, { responseType: 'arraybuffer' });
-
-        console.log("Image-Charts Response:", response.data);
+        const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
         res.set('Content-Type', 'image/png');
         res.send(response.data);

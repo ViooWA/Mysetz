@@ -11,21 +11,21 @@ app.use(cors());
 app.get('/api/openai.js', async (req, res) => {
     console.log("HTTP Method:", req.method);
     console.log("Query Params:", req.query);
-    const { text, username = 'Vioo' } = req.query;
+    const { text } = req.query;
     if (!text) {
         return res.json({
             status: false,
-            result: 'Contoh penggunaan: ?text=halo&username=Vioo'
+            result: 'Contoh penggunaan: ?text=halo'
         });
     }
     try {
         const response = await axios.get(
-            `https://api.vreden.my.id/api/mora?query=${encodeURIComponent(text)}&username=${encodeURIComponent(username)}`
+            `https://api.agatz.xyz/api/gpt4o?message=${encodeURIComponent(text)}`
         );
         console.log("Response from External API:", response.data);
         return res.json({
             status: true,
-            result: response.data.result,
+            result: response.data.data.result,
         });
     } catch (err) {
         console.error("External API Error:", err.message);
