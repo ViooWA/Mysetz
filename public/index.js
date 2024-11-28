@@ -40,6 +40,22 @@ const features = [
     query: "tag=simisimi&text=Hai%20kamu"
   },
   {
+    name: "Gemini",
+    method: "GET",
+    description: "AI/gemini",
+    category: "AI",
+    endpoint: "../api.js",
+    query: "tag=gemini&text=Hai%20kamu"
+  },
+  {
+    name: "Mora-AI",
+    method: "GET",
+    description: "AI/morai",
+    category: "AI",
+    endpoint: "../api.js",
+    query: "tag=morai&text=Hai%20kamu&username=Vioo"
+  },
+  {
     name: "Google-Search",
     method: "GET",
     description: "Search/google",
@@ -70,6 +86,22 @@ const features = [
     category: "Search",
     endpoint: "../api.js",
     query: "tag=wikimedia&text=Harimau"
+  },
+  {
+    name: "Playstore",
+    method: "GET",
+    description: "Search/playstore",
+    category: "Search",
+    endpoint: "../api.js",
+    query: "tag=playstore&text=Minecraft"
+  },
+  {
+    name: "Happymod",
+    method: "GET",
+    description: "Search/happymod",
+    category: "Search",
+    endpoint: "../api.js",
+    query: "tag=happymod&text=Minecraft"
   },
   {
     name: "Brat-Sticker",
@@ -104,6 +136,22 @@ const features = [
     query: "tag=txtimg&text=Halo%20kamu"
   },
   {
+    name: "MemeGen",
+    method: "GET",
+    description: "Maker/memegen",
+    category: "Maker",
+    endpoint: "../api.js",
+    query: "tag=memegen&text=Halo&text1=kamu"
+  },
+  {
+    name: "BlurImage",
+    method: "GET",
+    description: "Maker/blurimg",
+    category: "Maker",
+    endpoint: "../api.js",
+    query: "tag=blurimg&text=Halo%20kamu"
+  },
+  {
     name: "MediaFire",
     method: "GET",
     description: "Downloader/mediafire",
@@ -134,6 +182,22 @@ const features = [
     category: "Downloader",
     endpoint: "../api.js",
     query: "tag=fbdl&url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
+  },
+  {
+    name: "Capcut",
+    method: "GET",
+    description: "Downloader/capcut",
+    category: "Downloader",
+    endpoint: "../api.js",
+    query: "tag=capcut&url=https://www.capcut.com/t/Zs8Sw9wsE/%20aesthetic"
+  },
+  {
+    name: "Google-Drive",
+    method: "GET",
+    description: "Downloader/gdrive",
+    category: "Downloader",
+    endpoint: "../api.js",
+    query: "tag=gdrive&url=https://drive.google.com/file/d/1YTD7Ymux9puFNqu__5WPlYdFZHcGI3Wz/view?usp=drivesdk"
   }
 ];
 
