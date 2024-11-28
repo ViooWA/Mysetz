@@ -10,7 +10,6 @@
     .gradient-bg {
       background: linear-gradient(90deg, #fbbf24, #f59e0b);
       color: white;
-      animation: gradientAnimation 0.50s infinite alternate;
     }
     .gradient-button {
       background: linear-gradient(90deg, #f59e0b, #fbbf24);
@@ -21,7 +20,6 @@
       background: linear-gradient(to right, #f59e0b, #fbbf24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textShimmer 1s infinite alternate;
     }
     body {
       background-color: #1f2937;
@@ -46,14 +44,6 @@
       width: 48px;
       height: 48px;
       color: white;
-    }
-    @keyframes gradientAnimation {
-      0% { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-      100% { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-    }
-    @keyframes textShimmer {
-      0% { background-position: -100%; }
-      100% { background-position: 200%; }
     }
   </style>
 </head>
