@@ -56,6 +56,22 @@ const features = [
     query: "tag=morai&text=Hai%20kamu&username=Vioo"
   },
   {
+    name: "Moshi-AI",
+    method: "GET",
+    description: "AI/moshiai",
+    category: "AI",
+    endpoint: "../api.js",
+    query: "tag=moshiai&text=Hai%20kamu"
+  },
+  {
+    name: "Latukam",
+    method: "GET",
+    description: "AI/latukam",
+    category: "AI",
+    endpoint: "../api.js",
+    query: "tag=latukam&text=Hai%20kamu"
+  },
+  {
     name: "Google-Search",
     method: "GET",
     description: "Search/google",
