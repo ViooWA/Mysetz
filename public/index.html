@@ -10,6 +10,7 @@
     .gradient-bg {
       background: linear-gradient(90deg, #fbbf24, #f59e0b);
       color: white;
+      animation: gradientAnimation 5s infinite alternate;
     }
     .gradient-button {
       background: linear-gradient(90deg, #f59e0b, #fbbf24);
@@ -19,20 +20,31 @@
     .gradient-button:hover {
       transform: scale(1.05);
       background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.5);
     }
     .gradient-text {
       background: linear-gradient(to right, #f59e0b, #fbbf24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: textShimmer 3s infinite linear;
     }
     body {
       background-color: #1f2937;
       color: #e5e7eb;
+      overflow-x: hidden;
     }
     .card {
       background-color: #374151;
       color: #f9fafb;
       position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     .button-container {
       position: absolute;
@@ -44,10 +56,18 @@
       height: 48px;
       color: white;
     }
+    @keyframes gradientAnimation {
+      0% { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+      100% { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    }
+    @keyframes textShimmer {
+      0% { background-position: -100%; }
+      100% { background-position: 200%; }
+    }
   </style>
 </head>
 <body class="bg-gray-900 flex flex-col min-h-screen">
-  <header class="gradient-bg p-4">
+  <header class="gradient-bg p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-xl font-bold">V-APIs</h1>
       <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
@@ -64,7 +84,16 @@
   </header>
   <main class="container mx-auto py-10 flex-grow">
     <h1 class="text-4xl font-bold text-center mb-10 gradient-text">V-APIs</h1>
-    <div id="feature" class="space-y-8"></div>
+    <div id="feature" class="space-y-8">
+      <div class="card p-6">
+        <h2 class="text-2xl font-semibold mb-2">Feature 1</h2>
+        <p>Explore our amazing features designed to simplify your workflow.</p>
+      </div>
+      <div class="card p-6">
+        <h2 class="text-2xl font-semibold mb-2">Feature 2</h2>
+        <p>Seamlessly integrate powerful APIs into your applications.</p>
+      </div>
+    </div>
   </main>
   <footer id="contact" class="bg-gray-800 py-6">
     <div class="container mx-auto text-center text-gray-400 space-y-4">
@@ -74,13 +103,13 @@
         <ul class="flex justify-center space-x-6">
           <li>
             <a href="https://youtube.com/@SanjayaAds" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-youtube text-lg"></i>
+              <i class="fab fa-youtube text-3xl"></i>
               <span class="ml-2">YouTube</span>
             </a>
           </li>
           <li>
             <a href="https://t.me/+6289654057716" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-telegram-plane text-lg"></i>
+              <i class="fab fa-telegram-plane text-3xl"></i>
               <span class="ml-2">Telegram</span>
             </a>
           </li>
