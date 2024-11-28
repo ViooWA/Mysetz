@@ -5,14 +5,14 @@ menuToggle.addEventListener('click', () => {
   menu.classList.toggle('hidden');
   menu.classList.toggle('flex');
 });
-
+const fitur = require('../api/FITUR.js')
 const features = [
   {
     name: "OpenAI",
     method: "GET",
     description: "AI/openai",
     category: "AI",
-    endpoint: "../api/openai.js",
+    endpoint: fitur.openai,
     query: "text=Hai%20kamu"
   },
   {
@@ -20,7 +20,7 @@ const features = [
     method: "GET",
     description: "AI/blackbox",
     category: "AI",
-    endpoint: "../api/blackbox.js",
+    endpoint: fitur.blackbox,
     query: "text=Hai%20kamu"
   },
   {
