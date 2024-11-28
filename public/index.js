@@ -13,7 +13,7 @@ const features = [
     description: "AI/openai",
     category: "AI",
     endpoint: "../api/FITUR.js",
-    query: "text=Hai%20kamu"
+    query: "endpoint=openai&text=Hai%20kamu"
   },
   {
     name: "BlackBox",
@@ -21,7 +21,7 @@ const features = [
     description: "AI/blackbox",
     category: "AI",
     endpoint: "../api/FITUR.js",
-    query: "text=Hai%20kamu"
+    query: "endpoint=blackbox&text=Hai%20kamu"
   },
   {
     name: "LuminAI",
@@ -151,19 +151,23 @@ function createCategorySection(categoryName) {
 
 function redirectToEndpoint(endpoint, query, method) {
   const fullUrl = `${endpoint}?${query}`;
+
   if (method === "GET") {
     window.open(fullUrl, "_blank");
   } else if (method === "POST") {
-    fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(Object.fromEntries(new URLSearchParams(query))),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Response:", data))
-      .catch((error) => console.error("Error:", error));
+    const data = Object.fromEntries(new URLSearchParams(query));
+    axios.post(endpoint, data)
+      .then((response) => {
+        console.log("Response:", response.data);
+        alert("Request berhasil! Lihat konsol untuk respons.");
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        if (error.response) {
+          console.error("Detail Error:", error.response.data);
+        }
+        alert("Terjadi kesalahan! Lihat konsol untuk detail.");
+      });
   }
 }
 
