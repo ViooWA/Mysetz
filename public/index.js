@@ -12,7 +12,7 @@ const features = [
     method: "GET",
     description: "AI/openai",
     category: "AI",
-    endpoint: "../api/FITUR.js",
+    endpoint: "../api.js",
     query: "endpoint=openai&text=Hai%20kamu"
   },
   {
@@ -20,7 +20,7 @@ const features = [
     method: "GET",
     description: "AI/blackbox",
     category: "AI",
-    endpoint: "../api/FITUR.js",
+    endpoint: "../api.js",
     query: "endpoint=blackbox&text=Hai%20kamu"
   },
   {
@@ -28,112 +28,112 @@ const features = [
     method: "GET",
     description: "AI/luminai",
     category: "AI",
-    endpoint: "../api/luminai.js",
-    query: "text=Hai%20kamu"
+    endpoint: "../api.js",
+    query: "endpoint=luminai&text=Hai%20kamu"
   },
   {
     name: "SimiSimi",
     method: "GET",
     description: "AI/simisimi",
     category: "AI",
-    endpoint: "../api/simisimi.js",
-    query: "text=Hai%20kamu"
+    endpoint: "../api.js",
+    query: "endpoint=simisimi&text=Hai%20kamu"
   },
   {
     name: "Google-Search",
     method: "GET",
     description: "Search/google",
     category: "Search",
-    endpoint: "../api/google.js",
-    query: "text=Kylian%20Mbappe"
+    endpoint: "../api.js",
+    query: "endpoint=google&text=Kylian%20Mbappe"
   },
   {
     name: "NPM Search",
     method: "GET",
     description: "Search/npm",
     category: "Search",
-    endpoint: "../api/npm.js",
-    query: "text=axios"
+    endpoint: "../api.js",
+    query: "endpoint=npm&text=axios"
   },
   {
     name: "Pinterest",
     method: "GET",
     description: "Search/pinterest",
     category: "Search",
-    endpoint: "../api/pinterest.js",
-    query: "text=Kylian%20Mbappe"
+    endpoint: "../api.js",
+    query: "endpoint=pinterest&text=Kylian%20Mbappe"
   },
   {
     name: "Wikimedia",
     method: "GET",
     description: "Search/wikimedia",
     category: "Search",
-    endpoint: "../api/wikimedia.js",
-    query: "text=Harimau"
+    endpoint: "../api.js",
+    query: "endpoint=wikimedia&text=Harimau"
   },
   {
     name: "Brat-Sticker",
     method: "GET",
     description: "Maker/brat",
     category: "Maker",
-    endpoint: "../api/brat.js",
-    query: "text=Halo%20kamu"
+    endpoint: "../api.js",
+    query: "endpoint=brat&text=Halo%20kamu"
   },
   {
     name: "Yt-Comment",
     method: "GET",
     description: "Maker/ytcomment",
     category: "Maker",
-    endpoint: "../api/ytcomment.js",
-    query: "text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
+    endpoint: "../api.js",
+    query: "endpoint=ytcomment&text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
   },
   {
     name: "Carbonify",
     method: "GET",
     description: "Maker/carbon",
     category: "Maker",
-    endpoint: "../api/carbon.js",
-    query: "text=Halo%20kamu"
+    endpoint: "../api.js",
+    query: "endpoint=carbon&text=Halo%20kamu"
   },
   {
     name: "Txt-Image",
     method: "GET",
     description: "Maker/txtimg",
     category: "Maker",
-    endpoint: "../api/txtimg.js",
-    query: "text=Halo%20kamu"
+    endpoint: "../api.js",
+    query: "endpoint=txtimg&text=Halo%20kamu"
   },
   {
     name: "MediaFire",
     method: "GET",
     description: "Downloader/mediafire",
     category: "Downloader",
-    endpoint: "../api/mediafire.js",
-    query: "url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
+    endpoint: "../api.js",
+    query: "endpoint=mediafire&url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
   },
   {
     name: "Tiktok",
     method: "GET",
     description: "Downloader/ttdl",
     category: "Downloader",
-    endpoint: "../api/ttdl.js",
-    query: "url=https://vm.tiktok.com/ZSjVn47bC/"
+    endpoint: "../api.js",
+    query: "endpoint=ttdl&url=https://vm.tiktok.com/ZSjVn47bC/"
   },
   {
     name: "Instagram",
     method: "GET",
     description: "Downloader/igdl",
     category: "Downloader",
-    endpoint: "../api/igdl.js",
-    query: "url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
+    endpoint: "../api.js",
+    query: "endpoint=igdl&url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
   },
   {
     name: "Facebook",
     method: "GET",
     description: "Downloader/fbdl",
     category: "Downloader",
-    endpoint: "../api/fbdl.js",
-    query: "url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
+    endpoint: "../api.js",
+    query: "endpoint=fbdl&url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
   }
 ];
 
