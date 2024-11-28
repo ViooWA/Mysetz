@@ -141,7 +141,7 @@ const features = [
     description: "Maker/memegen",
     category: "Maker",
     endpoint: "../api.js",
-    query: "tag=memegen&text=Halo&text1=kamu"
+    query: "tag=memegen&url=https://pomf2.lain.la/f/6wng83b5.jpg&text=Halo&text1=kamu"
   },
   {
     name: "BlurImage",
@@ -149,7 +149,7 @@ const features = [
     description: "Maker/blurimg",
     category: "Maker",
     endpoint: "../api.js",
-    query: "tag=blurimg&text=Halo%20kamu"
+    query: "tag=blurimg&url=https://i.ytimg.com/vi/LIohsg2kHEM/maxresdefault.jpg"
   },
   {
     name: "MediaFire",
