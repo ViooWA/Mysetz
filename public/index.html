@@ -10,7 +10,7 @@
     .gradient-bg {
       background: linear-gradient(90deg, #fbbf24, #f59e0b);
       color: white;
-      animation: gradientAnimation 5s infinite alternate;
+      animation: gradientAnimation 3s infinite alternate;
     }
     .gradient-button {
       background: linear-gradient(90deg, #f59e0b, #fbbf24);
@@ -41,10 +41,6 @@
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     .button-container {
       position: absolute;
@@ -84,32 +80,25 @@
   </header>
   <main class="container mx-auto py-10 flex-grow">
     <h1 class="text-4xl font-bold text-center mb-10 gradient-text">V-APIs</h1>
-    <div id="feature" class="space-y-8">
-      <div class="card p-6">
-        <h2 class="text-2xl font-semibold mb-2">Feature 1</h2>
-        <p>Explore our amazing features designed to simplify your workflow.</p>
-      </div>
-      <div class="card p-6">
-        <h2 class="text-2xl font-semibold mb-2">Feature 2</h2>
-        <p>Seamlessly integrate powerful APIs into your applications.</p>
-      </div>
-    </div>
+    <p class="text-center text-lg text-gray-300">
+      V-APIs are rest apis that are made for fun or enjoyment but are designed to be attractive.
+    </p>
   </main>
   <footer id="contact" class="bg-gray-800 py-6">
     <div class="container mx-auto text-center text-gray-400 space-y-4">
-      <p>&copy; 2024 V-APIs. by Vioo WhatsApp</p>
+      <p>&copy; 2024 V-APIs - by Vioo WhatsApp</p>
       <div>
         <p>Follow Us:</p>
         <ul class="flex justify-center space-x-6">
           <li>
             <a href="https://youtube.com/@SanjayaAds" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-youtube text-3xl"></i>
+              <i class="fab fa-youtube text-lg"></i>
               <span class="ml-2">YouTube</span>
             </a>
           </li>
           <li>
             <a href="https://t.me/+6289654057716" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-telegram-plane text-3xl"></i>
+              <i class="fab fa-telegram-plane text-lg"></i>
               <span class="ml-2">Telegram</span>
             </a>
           </li>
