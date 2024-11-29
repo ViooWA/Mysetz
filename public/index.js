@@ -296,6 +296,70 @@ const features = [
     query: "tag=abatch-dl&url=https://www.animebatch.id/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-sub-indo/"
   },
   {
+    name: "Tebak Gambar",
+    method: "GET",
+    description: "Games/tebakgambar",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakgambar"
+  },
+  {
+    name: "Tebak HeroML",
+    method: "GET",
+    description: "Games/tebakheroml",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakheroml"
+  },
+  {
+    name: "Tebak JKT",
+    method: "GET",
+    description: "Games/tebakjkt",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakjkt"
+  },
+  {
+    name: "Tebak Hewan",
+    method: "GET",
+    description: "Games/tebakhewan",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakhewan"
+  },
+  {
+    name: "Tebak Game",
+    method: "GET",
+    description: "Games/tebakgame",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakgame"
+  },
+  {
+    name: "Tebak Bendera",
+    method: "GET",
+    description: "Games/tebakbendera",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebakbendera"
+  },
+  {
+    name: "Tebak Lagu",
+    method: "GET",
+    description: "Games/tebaklagu",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebaklagu"
+  },
+  {
+    name: "Tebak Lirik",
+    method: "GET",
+    description: "Games/tebaklirik",
+    category: "Games",
+    endpoint: "../api.js",
+    query: "tag=tebaklirik"
+  },
+  {
     name: "NSFW",
     method: "GET",
     description: "NSFW/nsfw",
