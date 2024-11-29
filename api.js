@@ -422,6 +422,62 @@ return res.status(200).json({
 status: true,
 data: response.data.data,
 });
+} else if (tag === 'tebakgambar') { // TEBAKGAMBAR
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakgambar?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebakheroml') { // TEBAKHEROML
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakheroml?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebakjkt') { // TEBAKJKT
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakjkt?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebakhewan') { // TEBAKHEWAN
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakhewan?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebakgame') { // TEBAKGAME
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakgame?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebakbendera') { // TEBAKBENDERA
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebakbendera?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data,
+});
+} else if (tag === 'tebaklagu') { // TEBAKLAGU
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebaklagu?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
+} else if (tag === 'tebaklirik') { // TEBAKLIRIK
+const response = await axios.get(`https://api.siputzx.my.id/api/games/tebaklirik?-`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
 } else if (tag === 'nsfw') { // NSFW
 const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`).catch((err) => {
 return null });
