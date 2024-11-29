@@ -479,8 +479,15 @@ status: true,
 data: response.data.data,
 });
 } else if (tag === 'nsfw') { // NSFW
-const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`).catch((err) => {
-return null });
+const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`)
+.catch((err) => {
+return null;
+});
+if (!pe || !pe.data) {
+return res.status(500).json({
+status: false,
+error: 'Undefined',
+})}
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
 const tags = ["trap", "blowjob", "hentai", "boobs", "ass", "pussy", "thighs", "lesbian", "lewdneko", "cum"]
 if (!tags.includes(text) && !text.includes('list')) {
@@ -493,10 +500,17 @@ status: true,
 data: po,
 });
 } else if (tag === 'sfw') { // SFW
-const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`).catch((err) => {
-return null });
+const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`)
+.catch((err) => {
+return null;
+});
+if (!pe || !pe.data) {
+return res.status(500).json({
+status: false,
+error: 'Undefined',
+})}
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
-const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"]
+const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"];
 if (!tags.includes(text) && !text.includes('list')) {
 return res.status(200).json({
 status: false,
