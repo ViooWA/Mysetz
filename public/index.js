@@ -75,7 +75,7 @@ const features = [
     name: "Google-Search",
     method: "GET",
     description: "Search/google",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=google&text=Kylian%20Mbappe"
   },
@@ -83,7 +83,7 @@ const features = [
     name: "NPM Search",
     method: "GET",
     description: "Search/npm",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=npm&text=Axios"
   },
@@ -91,7 +91,7 @@ const features = [
     name: "Pinterest",
     method: "GET",
     description: "Search/pinterest",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=pinterest&text=Kylian%20Mbappe"
   },
@@ -99,7 +99,7 @@ const features = [
     name: "Wikimedia",
     method: "GET",
     description: "Search/wikimedia",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=wikimedia&text=Harimau"
   },
@@ -107,7 +107,7 @@ const features = [
     name: "Playstore",
     method: "GET",
     description: "Search/playstore",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=playstore&text=Minecraft"
   },
@@ -115,7 +115,7 @@ const features = [
     name: "Happymod",
     method: "GET",
     description: "Search/happymod",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=happymod&text=Minecraft"
   },
@@ -123,7 +123,7 @@ const features = [
     name: "Komiku-Search",
     method: "GET",
     description: "Search/komiku",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=komiku&text=Shikanoko"
   },
@@ -131,7 +131,7 @@ const features = [
     name: "McpeDL",
     method: "GET",
     description: "Search/mcpedl",
-    category: "Search",
+    category: "SEARCH",
     endpoint: "../api.js",
     query: "tag=mcpedl&text=Jenny"
   },
@@ -139,7 +139,7 @@ const features = [
     name: "Brat-Sticker",
     method: "GET",
     description: "Maker/brat",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=brat&text=Halo%20kamu"
   },
@@ -147,7 +147,7 @@ const features = [
     name: "Yt-Comment",
     method: "GET",
     description: "Maker/ytcomment",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=ytcomment&text=Halo%20kamu&avatar=https://telegra.ph/file/c3f3d2c2548cbefef1604.jpg&username=Vioo"
   },
@@ -155,7 +155,7 @@ const features = [
     name: "Carbonify",
     method: "GET",
     description: "Maker/carbon",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=carbon&text=Halo%20kamu"
   },
@@ -163,7 +163,7 @@ const features = [
     name: "Txt-Image",
     method: "GET",
     description: "Maker/txtimg",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=txtimg&text=Halo%20kamu"
   },
@@ -171,7 +171,7 @@ const features = [
     name: "MemeGen",
     method: "GET",
     description: "Maker/memegen",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=memegen&url=https://pomf2.lain.la/f/6wng83b5.jpg&text=Halo&text1=kamu"
   },
@@ -179,7 +179,7 @@ const features = [
     name: "BlurImage",
     method: "GET",
     description: "Maker/blurimg",
-    category: "Maker",
+    category: "MAKER",
     endpoint: "../api.js",
     query: "tag=blurimg&url=https://i.ytimg.com/vi/LIohsg2kHEM/maxresdefault.jpg"
   },
@@ -187,7 +187,7 @@ const features = [
     name: "MediaFire",
     method: "GET",
     description: "Downloader/mediafire",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=mediafire&url=https://www.mediafire.com/file/o0008kd4n0q8dxa/Infinity-V1.0.0+.zip/file"
   },
@@ -195,7 +195,7 @@ const features = [
     name: "Tiktok",
     method: "GET",
     description: "Downloader/ttdl",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=ttdl&url=https://vm.tiktok.com/ZSjVn47bC/"
   },
@@ -203,7 +203,7 @@ const features = [
     name: "Instagram",
     method: "GET",
     description: "Downloader/igdl",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=igdl&url=https://www.instagram.com/p/DCQhOuXTRvE/?img_index=1&igsh=MWF2dXU3aWtpazY2NQ=="
   },
@@ -211,7 +211,7 @@ const features = [
     name: "Facebook",
     method: "GET",
     description: "Downloader/fbdl",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=fbdl&url=https://www.facebook.com/share/r/12BFZAtjpS8/?mibextid=qDwCgo"
   },
@@ -219,7 +219,7 @@ const features = [
     name: "Capcut",
     method: "GET",
     description: "Downloader/capcut",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=capcut&url=https://www.capcut.com/t/Zs8Sw9wsE/%20aesthetic"
   },
@@ -227,7 +227,7 @@ const features = [
     name: "Google-Drive",
     method: "GET",
     description: "Downloader/gdrive",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=gdrive&url=https://drive.google.com/file/d/1YTD7Ymux9puFNqu__5WPlYdFZHcGI3Wz/view?usp=drivesdk"
   },
@@ -235,7 +235,7 @@ const features = [
     name: "YouTube",
     method: "GET",
     description: "Downloader/ytdl",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=ytdl&url=https://youtube.com/shorts/kpsR7ogZZ5c?si=vlI0bE-11nyj3nI9"
   },
@@ -243,7 +243,7 @@ const features = [
     name: "Twitter",
     method: "GET",
     description: "Downloader/twitter",
-    category: "Downloader",
+    category: "DOWNLOADER",
     endpoint: "../api.js",
     query: "tag=twitter&url=https://twitter.com/Eminem/status/943590594491772928"
   },
@@ -251,7 +251,7 @@ const features = [
     name: "Otakudesu-Search",
     method: "GET",
     description: "Anime/otakudesu-src",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=otakudesu-src&text=Naruto"
   },
@@ -259,7 +259,7 @@ const features = [
     name: "Otakudesu-Detail",
     method: "GET",
     description: "Anime/otakudesu-detail",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=otakudesu-detail&url=https://otakudesu.cloud/lengkap/btr-nng-sub-indo-part-1"
   },
@@ -267,7 +267,7 @@ const features = [
     name: "Otakudesu-Ongoing",
     method: "GET",
     description: "Anime/otakudesu-ongoing",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=otakudesu-ongoing"
   },
@@ -275,7 +275,7 @@ const features = [
     name: "Otakudesu-Download",
     method: "GET",
     description: "Anime/otakudesu-dl",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=otakudesu-dl&url=https://otakudesu.cloud/lengkap/btr-nng-sub-indo-part-1"
   },
@@ -283,7 +283,7 @@ const features = [
     name: "Animebatch-Search",
     method: "GET",
     description: "Anime/abatch-src",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=abatch-src&text=Maou"
   },
@@ -291,7 +291,7 @@ const features = [
     name: "Animebatch-Download",
     method: "GET",
     description: "Anime/abatch-dl",
-    category: "Anime",
+    category: "ANIME",
     endpoint: "../api.js",
     query: "tag=abatch-dl&url=https://www.animebatch.id/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-sub-indo/"
   },
@@ -299,7 +299,7 @@ const features = [
     name: "Tebak Gambar",
     method: "GET",
     description: "Games/tebakgambar",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakgambar"
   },
@@ -307,7 +307,7 @@ const features = [
     name: "Tebak HeroML",
     method: "GET",
     description: "Games/tebakheroml",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakheroml"
   },
@@ -315,7 +315,7 @@ const features = [
     name: "Tebak JKT",
     method: "GET",
     description: "Games/tebakjkt",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakjkt"
   },
@@ -323,7 +323,7 @@ const features = [
     name: "Tebak Hewan",
     method: "GET",
     description: "Games/tebakhewan",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakhewan"
   },
@@ -331,7 +331,7 @@ const features = [
     name: "Tebak Game",
     method: "GET",
     description: "Games/tebakgame",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakgame"
   },
@@ -339,7 +339,7 @@ const features = [
     name: "Tebak Bendera",
     method: "GET",
     description: "Games/tebakbendera",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebakbendera"
   },
@@ -347,7 +347,7 @@ const features = [
     name: "Tebak Lagu",
     method: "GET",
     description: "Games/tebaklagu",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebaklagu"
   },
@@ -355,7 +355,7 @@ const features = [
     name: "Tebak Lirik",
     method: "GET",
     description: "Games/tebaklirik",
-    category: "Games",
+    category: "GAMES",
     endpoint: "../api.js",
     query: "tag=tebaklirik"
   },
@@ -363,7 +363,7 @@ const features = [
     name: "ToBase64",
     method: "GET",
     description: "Convert/tobase64",
-    category: "Convert",
+    category: "CONVERT",
     endpoint: "../api.js",
     query: "tag=tobase64&text=Halo%20kamu"
   },
@@ -371,7 +371,7 @@ const features = [
     name: "ToUtf8",
     method: "GET",
     description: "Convert/toutf8",
-    category: "Convert",
+    category: "CONVERT",
     endpoint: "../api.js",
     query: "tag=toutf8&text=SGFsbyBrYW11"
   },
@@ -379,7 +379,7 @@ const features = [
     name: "To GithubRaw",
     method: "GET",
     description: "Convert/githubraw",
-    category: "Convert",
+    category: "CONVERT",
     endpoint: "../api.js",
     query: "tag=githubraw&url=https://github.com/ViooWA/Web/blob/main/vercel.json"
   },
@@ -387,7 +387,7 @@ const features = [
     name: "To GithubOri",
     method: "GET",
     description: "Convert/githubori",
-    category: "Convert",
+    category: "CONVERT",
     endpoint: "../api.js",
     query: "tag=githubori&url=https://raw.githubusercontent.com/ViooWA/Web/main/vercel.json"
   },
