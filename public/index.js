@@ -120,6 +120,22 @@ const features = [
     query: "tag=happymod&text=Minecraft"
   },
   {
+    name: "Komiku-Search",
+    method: "GET",
+    description: "Search/komiku",
+    category: "Search",
+    endpoint: "../api.js",
+    query: "tag=komiku&text=Shikanoko"
+  },
+  {
+    name: "Code-Search",
+    method: "GET",
+    description: "Search/codesrc",
+    category: "Search",
+    endpoint: "../api.js",
+    query: "tag=codesrc&text=FetchJson"
+  },
+  {
     name: "Brat-Sticker",
     method: "GET",
     description: "Maker/brat",
@@ -278,6 +294,38 @@ const features = [
     category: "Anime",
     endpoint: "../api.js",
     query: "tag=abatch-dl&url=https://www.animebatch.id/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-sub-indo/"
+  },
+  {
+    name: "NSFW",
+    method: "GET",
+    description: "NSFW/nsfw",
+    category: "NSFW & SFW",
+    endpoint: "../api.js",
+    query: "tag=nsfw&text=trap"
+  },
+  {
+    name: "SFW",
+    method: "GET",
+    description: "SFW/sfw",
+    category: "NSFW & SFW",
+    endpoint: "../api.js",
+    query: "tag=sfw&text=waifu"
+  },
+  {
+    name: "ToBase64",
+    method: "GET",
+    description: "Convert/tobase64",
+    category: "Convert",
+    endpoint: "../api.js",
+    query: "tag=tobase64&text=Halo%20kamu"
+  },
+  {
+    name: "ToUtf8",
+    method: "GET",
+    description: "Convert/toutf8",
+    category: "Convert",
+    endpoint: "../api.js",
+    query: "tag=toutf8&text=Halo%20kamu"
   }
 ];
 
