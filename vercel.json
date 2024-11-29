@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "*",
+      "src": "api",
       "use": "@vercel/node"
     },
     {
@@ -16,7 +16,7 @@
       "dest": "/api"
     },
     {
-      "src": "/(.*)",
+      "src": "/api",
       "dest": "/public/$1"
     }
   ]
