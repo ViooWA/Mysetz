@@ -85,7 +85,7 @@ const features = [
     description: "Search/npm",
     category: "Search",
     endpoint: "../api.js",
-    query: "tag=npm&text=axios"
+    query: "tag=npm&text=Axios"
   },
   {
     name: "Pinterest",
@@ -360,22 +360,6 @@ const features = [
     query: "tag=tebaklirik"
   },
   {
-    name: "NSFW",
-    method: "GET",
-    description: "NSFW/nsfw",
-    category: "NSFW & SFW",
-    endpoint: "../api.js",
-    query: "tag=nsfw&text=trap"
-  },
-  {
-    name: "SFW",
-    method: "GET",
-    description: "SFW/sfw",
-    category: "NSFW & SFW",
-    endpoint: "../api.js",
-    query: "tag=sfw&text=waifu"
-  },
-  {
     name: "ToBase64",
     method: "GET",
     description: "Convert/tobase64",
@@ -390,6 +374,38 @@ const features = [
     category: "Convert",
     endpoint: "../api.js",
     query: "tag=toutf8&text=SGFsbyBrYW11"
+  },
+  {
+    name: "To GithubRaw",
+    method: "GET",
+    description: "Convert/githubraw",
+    category: "Convert",
+    endpoint: "../api.js",
+    query: "tag=githubraw&url=https://github.com/ViooWA/Web/blob/main/vercel.json"
+  },
+  {
+    name: "To GithubOri",
+    method: "GET",
+    description: "Convert/githubori",
+    category: "Convert",
+    endpoint: "../api.js",
+    query: "tag=githubori&url=https://raw.githubusercontent.com/ViooWA/Web/main/vercel.json"
+  },
+  {
+    name: "NSFW",
+    method: "GET",
+    description: "NSFW/nsfw",
+    category: "NSFW & SFW",
+    endpoint: "../api.js",
+    query: "tag=nsfw&text=trap"
+  },
+  {
+    name: "SFW",
+    method: "GET",
+    description: "SFW/sfw",
+    category: "NSFW & SFW",
+    endpoint: "../api.js",
+    query: "tag=sfw&text=waifu"
   }
 ];
 
