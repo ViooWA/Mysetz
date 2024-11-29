@@ -325,7 +325,7 @@ const features = [
     description: "Convert/toutf8",
     category: "Convert",
     endpoint: "../api.js",
-    query: "tag=toutf8&text=Halo%20kamu"
+    query: "tag=toutf8&text=SGFsbyBrYW11"
   }
 ];
 
