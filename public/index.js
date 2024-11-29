@@ -128,12 +128,12 @@ const features = [
     query: "tag=komiku&text=Shikanoko"
   },
   {
-    name: "Code-Search",
+    name: "McpeDL",
     method: "GET",
-    description: "Search/codesrc",
+    description: "Search/mcpedl",
     category: "Search",
     endpoint: "../api.js",
-    query: "tag=codesrc&text=FetchJson"
+    query: "tag=mcpedl&text=Jenny"
   },
   {
     name: "Brat-Sticker",
