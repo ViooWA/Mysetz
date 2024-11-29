@@ -19,14 +19,23 @@ url: "https://komiku.id" + link
 return mangaList
 }
 
-async function codesearch(query) {
-const url = `https://api.github.com/search/code?q=${encodeURIComponent(query)}`;
-const response = await axios.get(url, {
-headers: {
-'Authorization': `token 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`,
-'Accept': 'application/vnd.github+json'
-}});
-return response.data;
+async function mcpedl(mods) {
+const ress = await axios.get(`https://mcpedl.org/?s=${mods}`);
+const $ = cheerio.load(ress.data);
+const result = [];
+$('.g-block.size-20').each((index, element) => {
+const title = $(element).find('.entry-title a').text();
+const url = $(element).find('.entry-title a').attr('href');
+const imageUrl = $(element).find('.post-thumbnail img').attr('data-src');
+const ratingWidth = $(element).find('.rating-wrapper .rating-box .rating-subbox').attr('style');
+const rating = ratingWidth ? parseInt(ratingWidth.split(':')[1]) / 100 * 5 : 0;
+result.push({
+title,
+url,
+imageUrl,
+rating: rating,
+})});
+return result;
 }
 
 async function CarbonifyV1(input) {
@@ -238,8 +247,8 @@ return res.status(200).json({
 status: true,
 data: response,
 });
-} else if (tag === 'codesrc') { // CODESRC
-const response = await codesearch(`${encodeURIComponent(text)}`)
+} else if (tag === 'mcpedl') { // MCPEDL
+const response = await mcpedl(`${encodeURIComponent(text)}`)
 return res.status(200).json({
 status: true,
 data: response,
