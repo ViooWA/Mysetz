@@ -1,4 +1,33 @@
-const axios = require('axios');
+const axios = require('axios')
+const cheerio = require('cheerio')
+
+async function komiku(search) {
+const ress = await axios.get(`https://api.komiku.id/?post_type=manga&s=${search}`);
+const $ = cheerio.load(ress.data);
+const mangaList = [];
+$('.bge').each((index, element) => {
+const title = $(element).find('h3').text().trim();
+const description = $(element).find('.judul2').text().trim();
+const image = $(element).find('img').attr('src');
+const link = $(element).find('a').attr('href');
+mangaList.push({
+title,
+description,
+image,
+url: "https://komiku.id" + link
+})});
+return mangaList
+}
+
+async function codesearch(query) {
+const url = `https://api.github.com/search/code?q=${encodeURIComponent(query)}`;
+const response = await axios.get(url, {
+headers: {
+'Authorization': `token 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`,
+'Accept': 'application/vnd.github+json'
+}});
+return response.data;
+}
 
 async function CarbonifyV1(input) {
 try {
@@ -142,8 +171,7 @@ title: item.title,
 description: item.snippet,
 link: item.link,
 })),
-});
-}
+})}
 return res.json({
 status: false,
 data: 'No results found',
@@ -203,6 +231,18 @@ const response = await axios.get(`https://itzpire.com/search/happymod?query=${en
 return res.status(200).json({
 status: true,
 data: response.data.data,
+});
+} else if (tag === 'komiku') { // KOMIKU
+const response = await komiku(`${encodeURIComponent(text)}`)
+return res.status(200).json({
+status: true,
+data: response,
+});
+} else if (tag === 'codesrc') { // CODESRC
+const response = await codesearch(`${encodeURIComponent(text)}`)
+return res.status(200).json({
+status: true,
+data: response,
 });
 } else if (tag === 'brat') { // BRAT
 const response = await axios.get(
@@ -373,9 +413,49 @@ return res.status(200).json({
 status: true,
 data: response.data.data,
 });
+} else if (tag === 'nsfw') { // NSFW
+const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`).catch((err) => {
+return null });
+const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
+const tags = ["trap", "blowjob", "hentai", "boobs", "ass", "pussy", "thighs", "lesbian", "lewdneko", "cum"]
+if (!tags.includes(text) && !text.includes('list')) {
+return res.status(200).json({
+status: false,
+message: `List: ${tags.join(", ")}`,
+})}
+return res.status(200).json({
+status: true,
+data: po,
+});
+} else if (tag === 'sfw') { // SFW
+const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`).catch((err) => {
+return null });
+const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
+const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"]
+if (!tags.includes(text) && !text.includes('list')) {
+return res.status(200).json({
+status: false,
+message: `List: ${tags.join(", ")}`,
+})}
+return res.status(200).json({
+status: true,
+data: po,
+});
+} else if (tag === 'tobase64') { // TOBASE64
+const base64 = Buffer.from(text).toString('base64');
+return res.status(200).json({
+status: true,
+result: base64,
+});
+} else if (tag === 'toutf8') { // TOUTF8
+const utf8 = Buffer.from(text, 'base64').toString('utf-8');
+return res.status(200).json({
+status: true,
+result: utf8,
+});
 }
 
-// === Catch akhir (semua error)
+// === Catch akhir (untuk semua error)
 } catch (err) {
 const errorResponse = {
 status: false,
