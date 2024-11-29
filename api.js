@@ -478,6 +478,40 @@ return res.status(200).json({
 status: true,
 data: response.data.data,
 });
+} else if (tag === 'tobase64') { // TOBASE64
+const base64 = Buffer.from(text).toString('base64');
+return res.status(200).json({
+status: true,
+result: base64,
+});
+} else if (tag === 'toutf8') { // TOUTF8
+const utf8 = Buffer.from(text, 'base64').toString('utf-8');
+return res.status(200).json({
+status: true,
+result: utf8,
+});
+} else if (tag === 'githubraw') { // GITHUBRAW
+if (!url.includes('github.com')) {
+return res.status(400).json({
+status: false,
+message: "Requires Github Raw URL",
+})}
+const rawUrl = url.replace('github.com', 'raw.githubusercontent.com').replace(/\/blob\/[^\/]+/, '').replace('/master', '').replace('/main', '');
+return res.status(200).json({
+status: true,
+result: rawUrl,
+});
+} else if (tag === 'githubori') { // GITHUBORI
+if (!url.includes('raw.githubusercontent.com')) {
+return res.status(400).json({
+status: false,
+message: "Requires Github Ori URL",
+})}
+const originalUrl = url.replace('raw.githubusercontent.com', 'github.com').replace(/\/([^\/]+)$/, '/blob/$1').replace('/master', '/blob/master').replace('/main', '/blob/main');
+return res.status(200).json({
+status: true,
+result: originalUrl,
+});
 } else if (tag === 'nsfw') { // NSFW
 const pe = await axios.get(`https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=${encodeURIComponent(text)}&json=1`)
 .catch((err) => {
@@ -491,7 +525,7 @@ error: 'Undefined',
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
 const tags = ["trap", "blowjob", "hentai", "boobs", "ass", "pussy", "thighs", "lesbian", "lewdneko", "cum"]
 if (!tags.includes(text) && !text.includes('list')) {
-return res.status(200).json({
+return res.status(400).json({
 status: false,
 message: `List: ${tags.join(", ")}`,
 })}
@@ -512,25 +546,13 @@ error: 'Undefined',
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
 const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"];
 if (!tags.includes(text) && !text.includes('list')) {
-return res.status(200).json({
+return res.status(400).json({
 status: false,
 message: `List: ${tags.join(", ")}`,
 })}
 return res.status(200).json({
 status: true,
 data: po,
-});
-} else if (tag === 'tobase64') { // TOBASE64
-const base64 = Buffer.from(text).toString('base64');
-return res.status(200).json({
-status: true,
-result: base64,
-});
-} else if (tag === 'toutf8') { // TOUTF8
-const utf8 = Buffer.from(text, 'base64').toString('utf-8');
-return res.status(200).json({
-status: true,
-result: utf8,
 });
 }
 
