@@ -520,7 +520,7 @@ return null;
 if (!pe || !pe.data) {
 return res.status(500).json({
 status: false,
-error: 'Undefined',
+error: 'undefined',
 })}
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
 const tags = ["trap", "blowjob", "hentai", "boobs", "ass", "pussy", "thighs", "lesbian", "lewdneko", "cum"]
@@ -541,10 +541,12 @@ return null;
 if (!pe || !pe.data) {
 return res.status(500).json({
 status: false,
-error: 'Undefined',
+error: 'undefined',
 })}
 const po = Array.isArray(pe.data) ? pe.data.slice(0, 5) : [];
-const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"];
+const tags = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", 
+"lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", 
+"nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"];
 if (!tags.includes(text) && !text.includes('list')) {
 return res.status(400).json({
 status: false,
@@ -565,10 +567,63 @@ error: err.message,
 statusCode: err.response.status,
 data: err.response.data,
 headers: err.response.headers,
-})
+}),
 };
+
+switch (err.response?.status) {
+case 400:
+return res.status(400).json({ ...errorResponse, message: 'Bad Request' });
+case 401:
+return res.status(401).json({ ...errorResponse, message: 'Unauthorized' });
+case 402:
+return res.status(402).json({ ...errorResponse, message: 'Payment Required' });
+case 403:
+return res.status(403).json({ ...errorResponse, message: 'Forbidden' });
+case 404:
+return res.status(404).json({ ...errorResponse, message: 'Not Found' });
+case 405:
+return res.status(405).json({ ...errorResponse, message: 'Method Not Allowed' });
+case 406:
+return res.status(406).json({ ...errorResponse, message: 'Not Acceptable' });
+case 407:
+return res.status(407).json({ ...errorResponse, message: 'Proxy Authentication Required' });
+case 408:
+return res.status(408).json({ ...errorResponse, message: 'Request Timeout' });
+case 409:
+return res.status(409).json({ ...errorResponse, message: 'Conflict' });
+case 410:
+return res.status(410).json({ ...errorResponse, message: 'Gone' });
+case 411:
+return res.status(411).json({ ...errorResponse, message: 'Length Required' });
+case 412:
+return res.status(412).json({ ...errorResponse, message: 'Precondition Failed' });
+case 413:
+return res.status(413).json({ ...errorResponse, message: 'Payload Too Large' });
+case 414:
+return res.status(414).json({ ...errorResponse, message: 'URI Too Long' });
+case 415:
+return res.status(415).json({ ...errorResponse, message: 'Unsupported Media Type' });
+case 416:
+return res.status(416).json({ ...errorResponse, message: 'Range Not Satisfiable' });
+case 417:
+return res.status(417).json({ ...errorResponse, message: 'Expectation Failed' });
+case 429:
+return res.status(429).json({ ...errorResponse, message: 'Too Many Requests' });
+case 500:
+return res.status(500).json({ ...errorResponse, message: 'Internal Server Error' });
+case 501:
+return res.status(501).json({ ...errorResponse, message: 'Not Implemented' });
+case 502:
+return res.status(502).json({ ...errorResponse, message: 'Bad Gateway' });
+case 503:
+return res.status(503).json({ ...errorResponse, message: 'Service Unavailable' });
+case 504:
+return res.status(504).json({ ...errorResponse, message: 'Gateway Timeout' });
+case 505:
+return res.status(505).json({ ...errorResponse, message: 'HTTP Version Not Supported' });
+default:
 return res.status(500).json(errorResponse);
-}
+}}
 }
 
 module.exports = handler;
