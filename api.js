@@ -30,6 +30,43 @@ return response.data;
 throw new Error('CarbonifyV2 failed: ' + err.message);
 }}
 
+class Ddownr {
+constructor(url) {
+this.url = url;
+this.video = ["360", "480", "720", "1080"];
+}
+download = async(type) => {
+if (!type) {
+return {
+success: false,
+list: this.video
+}}
+if (!this.video.includes(type)) {
+return {
+success: false,
+list: this.video
+}}
+try {
+const { data } = await axios.get(`https://p.oceansaver.in/ajax/download.php?copyright=0&format=${type}&url=${this.url}&api=dfcb6d76f2f6a9894gjkege8a4ab232222`);
+let result = {};
+while (true) {
+const response = await axios.get(`https://p.oceansaver.in/ajax/progress.php?id=${data.id}`).catch(e => e.response);
+if (response.data.download_url) {
+result = {
+type,
+download: response.data.download_url
+};
+break;
+}
+await new Promise(resolve => setTimeout(resolve, 1000));
+} return { ...data.info, ...result };
+} catch (e) {
+return {
+success: false,
+msg: "Error", 
+err: e 
+}}}}
+
 async function handler(req, res) {
 const { tag, text, text1, avatar, username, url } = req.query;
 
@@ -280,6 +317,20 @@ return res.status(200).json({
 status: true,
 data: response.data.data,
 });
+} else if (tag === 'ytdl') { // YOUTUBE
+const data = new Ddownr(`${url}`);
+const downloadResult = await data.download('480');
+return res.status(200).json({
+status: true,
+data: downloadResult,
+});
+} else if (tag === 'twitter') { // TWITTER
+const response = await axios.get(`https://api.agatz.xyz/api/twitter?url=${url}`
+);
+return res.status(200).json({
+status: true,
+data: response.data.data,
+});
 } else if (tag === 'otakudesu-src') { // OTKD-SRC
 const response = await axios.get(`https://api.siputzx.my.id/api/anime/otakudesu/search?s=${encodeURIComponent(text)}`
 );
@@ -324,7 +375,7 @@ data: response.data.data,
 });
 }
 
-// === Catch akhir
+// === Catch akhir (semua error)
 } catch (err) {
 const errorResponse = {
 status: false,
