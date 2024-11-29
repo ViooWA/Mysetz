@@ -23,7 +23,7 @@ async function codesearch(query) {
 const url = `https://api.github.com/search/code?q=${encodeURIComponent(query)}`;
 const response = await axios.get(url, {
 headers: {
-'Authorization': `token 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`,
+'Authorization': `token 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`,
 'Accept': 'application/vnd.github+json'
 }});
 return response.data;
