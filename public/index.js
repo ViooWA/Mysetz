@@ -216,6 +216,22 @@ const features = [
     query: "tag=gdrive&url=https://drive.google.com/file/d/1YTD7Ymux9puFNqu__5WPlYdFZHcGI3Wz/view?usp=drivesdk"
   },
   {
+    name: "YouTube",
+    method: "GET",
+    description: "Downloader/ytdl",
+    category: "Downloader",
+    endpoint: "../api.js",
+    query: "tag=ytdl&url=https://youtube.com/shorts/kpsR7ogZZ5c?si=vlI0bE-11nyj3nI9"
+  },
+  {
+    name: "Twitter",
+    method: "GET",
+    description: "Downloader/twitter",
+    category: "Downloader",
+    endpoint: "../api.js",
+    query: "tag=twitter&url=https://twitter.com/Eminem/status/943590594491772928"
+  },
+  {
     name: "Otakudesu-Search",
     method: "GET",
     description: "Anime/otakudesu-src",
