@@ -16,7 +16,7 @@
       "dest": "/api"
     },
     {
-      "src": "/api",
+      "src": "/(.*)",
       "dest": "/public/$1"
     }
   ]
