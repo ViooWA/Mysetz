@@ -1,94 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>V-APIs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <style>
-    .gradient-bg {
-      background: linear-gradient(90deg, #fbbf24, #f59e0b);
-      color: white;
-    }
-    .gradient-button {
-      background: linear-gradient(90deg, #f59e0b, #fbbf24);
-      color: white;
-      transition: all 0.3s ease;
-    }
-    .gradient-text {
-      background: linear-gradient(to right, #f59e0b, #fbbf24);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    body {
-      background-color: #1f2937;
-      color: #e5e7eb;
-      overflow-x: hidden;
-    }
-    .card {
-      background-color: #374151;
-      color: #f9fafb;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .button-container {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    .icon {
-      width: 48px;
-      height: 48px;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vioo Website - Home</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
-<body class="bg-gray-900 flex flex-col min-h-screen">
-  <header class="gradient-bg p-4 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold">V-APIs</h1>
-      <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
-      <nav id="menu" class="hidden lg:flex space-x-4">
-        <a href="#" class="text-white hover:underline">Home</a>
-        <a href="#feature" class="text-white hover:underline">Features</a>
-        <a href="#contact" class="text-white hover:underline">Contact</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container mx-auto py-10 flex-grow">
-    <h1 class="text-6xl font-bold text-center mb-10 gradient-text">V-APIs</h1>
-    <div id="feature" class="space-y-8"></div>
-  </main>
-  <footer id="contact" class="bg-gray-800 py-6">
-    <div class="container mx-auto text-center text-gray-400 space-y-4">
-      <p>&copy; 2024 V-APIs - by Vioo WhatsApp</p>
-      <div>
-        <p>Follow Us:</p>
-        <ul class="flex justify-center space-x-6">
-          <li>
-            <a href="https://youtube.com/@SanjayaAds" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-youtube text-lg"></i>
-              <span class="ml-2">YouTube</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://t.me/+6289654057716" target="_blank" class="flex items-center text-gray-400 hover:text-white">
-              <i class="fab fa-telegram-plane text-lg"></i>
-              <span class="ml-2">Telegram</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-  <script src="index.js"></script>
+<body>
+    <nav class="navbar">
+        <div class="logo">Vioo Website</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animated fadeInUp">Welcome to Vioo Website</h1>
+            <p class="animated fadeInUp delay-1">Discover the power of Artificial Intelligence.</p>
+            <a href="chat.html" class="cta-button animated fadeInUp delay-2">Start Chatting</a>
+        </div>
+    </section>
+    <footer class="footer-animated">
+        <p>&copy; 2024 Vioo. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
